@@ -24,7 +24,7 @@ export default function Menu() {
         </Link>
       </Options>
 
-      <Link to="">
+      <Link to="/inscricao">
         <p>Inscreva-se</p>
       </Link>
     </Container>
