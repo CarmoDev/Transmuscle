@@ -38,4 +38,9 @@ export const Sponsor = styled.article`
     color: #ffff;
     font-size: 30px;
   }
+
+  #AzumaDojo {
+    width: 140px;
+    border-radius: 100%;
+  }
 `;

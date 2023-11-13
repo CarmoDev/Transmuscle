@@ -9,7 +9,7 @@ export default function Sponsors() {
       <SponsorsContainer>
         {SponsorsData.map((sponsor) => (
           <Sponsor key={sponsor.name}>
-            <img src={sponsor.url} alt={sponsor.name} />
+            <img src={sponsor.url} id={sponsor.id} alt={sponsor.name} />
 
             <h2>{sponsor.name}</h2>
           </Sponsor>
