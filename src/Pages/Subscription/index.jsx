@@ -1,12 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { Container, Button, FormContainer, Input, Label } from "./styles";
+import { Container, Button, FormContainer, Poster, Checkbox } from "./styles";
 import PurchaseModal from "../../checkout/purchaseModal";
 
 const stripePromise = loadStripe(
   "pk_test_51OBgZiASmfrlQVyLYPmjWhLFeqFT5yry9Po06roCEG4REMl3Q24Y8BftrxolgtAJLBqGUwkHr53oKSXYeOdrlxvA00sS5bc8zm"
 );
+
+import { FloatInput, FloatSelect } from "../../Components/FloatInput";
+import { FileUploader } from "react-drag-drop-files";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -23,6 +27,16 @@ export default function Subscription() {
     bairro: "",
     estado: "",
   });
+  const [modalVisible, setModalVisible] = useState(false);
+  const [clientSecret, setClientSecret] = useState("");
+  const [file, setFile] = useState(null);
+
+  const fileTypes = ["PDF"];
+
+  const handleChange = (file) => {
+    setFile(file);
+  };
+  console.log(file);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,13 +45,10 @@ export default function Subscription() {
       [name]: value,
     });
   };
-  const [modalVisible, setModalVisible] = useState(false);
 
   const closeModal = () => {
     setModalVisible(false);
   };
-
-  const [clientSecret, setClientSecret] = useState("");
 
   function getClientSecret() {
     fetch("http://localhost:2727/payment", {
@@ -72,128 +83,196 @@ export default function Subscription() {
   return (
     <Container>
       <FormContainer>
-        <Label>
-          RG:
-          <Input
+        <Poster />
+
+        <div className="register">
+          <h1>Registro de Atleta</h1>
+          <FloatInput
             type="text"
-            name="rg"
-            placeholder="Digite o RG"
-            value={formData.rg}
-            onChange={handleInputChange}
-          />
-        </Label>
-        <Label>
-          CPF:
-          <Input
-            type="text"
-            name="cpf"
-            placeholder="Digite o CPF"
-            value={formData.cpf}
-            onChange={handleInputChange}
-          />
-        </Label>
-        <Label>
-          Nome:
-          <Input
-            type="text"
-            name="name"
-            placeholder="Digite o nome"
+            name={"name"}
+            label="Nome:"
             value={formData.name}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          Email:
-          <Input
+
+          <FloatInput
+            type="text"
+            name={"rg"}
+            label={"RG:"}
+            value={formData.rg}
+            onChange={handleInputChange}
+          />
+
+          <FloatInput
+            type="text"
+            name={"cpf"}
+            label="CPF:"
+            value={formData.cpf}
+            onChange={handleInputChange}
+          />
+
+          <FloatInput
+            type="text"
+            name={"cpf"}
+            label="Data de nascimento:"
+            value={formData.cpf}
+            onChange={handleInputChange}
+          />
+
+          <FloatInput
             type="text"
             name="email"
-            placeholder="Digite o email"
+            label="Email:"
             value={formData.email}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          Categoria:
-          <Input
-            type="text"
-            name="categoria"
-            placeholder="Digite o categoria"
+
+          <FloatSelect
             value={formData.categoria}
             onChange={handleInputChange}
-          />
-        </Label>
-        <Label>
-          Idade:
-          <Input
+            label={"Categoria"}
+            name="categoria"
+          >
+            <option>Women's Physique</option>
+            <option>Wellness Fitness</option>
+            <option>Women's Physique</option>
+            <option>Body Fitness</option>
+            <option>Men's Physique</option>
+            <option>Classic Physique</option>
+            <option>Bodybuilding</option>
+          </FloatSelect>
+
+          <FloatSelect
+            value={formData.genero}
+            onChange={handleInputChange}
+            label={"Genero"}
+            name="Genero"
+          >
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Não Binario</option>
+          </FloatSelect>
+
+          <FloatInput
             type="text"
-            name="idade"
-            placeholder="Digite o Idade"
-            value={formData.idade}
+            name="Telefone"
+            label="Telefone:"
+            value={formData.telefone}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          Peso:
-          <Input
+
+          <FloatInput
             type="text"
-            name="peso"
-            placeholder="Digite o Peso"
-            value={formData.peso}
+            name="instagram"
+            label="Instagram:"
+            value={formData.instagram}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          rua:
-          <Input
+
+          <FloatInput
+            type="text"
+            name="knows"
+            label="Como conheceu a página:"
+            value={formData.knows}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="address">
+          <h1>Endereço completo</h1>
+
+          <FloatInput
             type="text"
             name="rua"
-            placeholder="Digite o rua"
+            label="rua"
             value={formData.rua}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          CEP:
-          <Input
+
+          <FloatInput
             type="text"
             name="cep"
-            placeholder="Digite o CEP"
+            label="CEP:"
             value={formData.cep}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          Bairro:
-          <Input
+
+          <FloatInput
             type="text"
             name="bairro"
-            placeholder="Digite o Bairro"
+            label="Bairro:"
             value={formData.bairro}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          Número:
-          <Input
+
+          <FloatInput
             type="text"
             name="numero"
-            placeholder="Digite o Número"
+            label="Número"
             value={formData.numero}
             onChange={handleInputChange}
           />
-        </Label>
-        <Label>
-          Estado:
-          <Input
+
+          <FloatInput
+            type="text"
+            name="numero"
+            label="Número"
+            value={formData.numero}
+            onChange={handleInputChange}
+          />
+
+          <FloatInput
             type="text"
             name="estado"
-            placeholder="Digite o Estado"
+            label="Estado"
             value={formData.estado}
             onChange={handleInputChange}
           />
-        </Label>
+        </div>
+
+        <div className="footer">
+          <h3>Laudo Médico *</h3>
+          <FileUploader
+            hover={"Solte o laudo médico aqui"}
+            handleChange={handleChange}
+            name="laudo médico"
+            types={fileTypes}
+            required
+          >
+            <div className="laudo">
+              <p>Clique para selecionar o laudo médico ou arraste e solte</p>
+
+              <span>Formatos Permitidos: PDF</span>
+            </div>
+          </FileUploader>
+          <small>
+            Esse campeonato é exclusivo para trans e não binários por esse
+            motivos solicitamos laudo médico
+          </small>
+
+          <Checkbox>
+            <p>
+              {" "}
+              Entendo que no dia da pesagem devo levar meus{" "}
+              <span>documentos </span>e o <span>laudo médico</span> para
+              comprovação de transição
+            </p>
+            <input type="checkbox" id="docs" name="docs" />
+            <span className="checkmark"></span>
+          </Checkbox>
+
+          <Checkbox>
+            <p>
+              Eu concordo com <span>termos de uso</span> e a{" "}
+              <span>Política de Privacidade</span>
+            </p>
+            <input type="checkbox" id="privacy" name="privacy" />
+            <span className="checkmark"></span>
+          </Checkbox>
+
+          <Button onClick={handlePurchase}>Pagar</Button>
+        </div>
       </FormContainer>
-      <Button onClick={handlePurchase}>Pagar</Button>
 
       {clientSecret && (
         <Elements
