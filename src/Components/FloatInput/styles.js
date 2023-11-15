@@ -40,6 +40,11 @@ export const Input = styled.div`
     cursor: not-allowed;
   }
 
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #000c1c inset;
+    -webkit-text-fill-color: #fafafa !important;
+  }
+
   label {
     pointer-events: none;
     position: absolute;

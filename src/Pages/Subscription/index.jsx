@@ -4,13 +4,15 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Container, Button, FormContainer, Poster, Checkbox } from "./styles";
 import PurchaseModal from "../../checkout/purchaseModal";
+import { FileUploader } from "react-drag-drop-files";
+
+import Logo from "../../assets/images/GoldenLogoFull.png";
 
 const stripePromise = loadStripe(
   "pk_test_51OBgZiASmfrlQVyLYPmjWhLFeqFT5yry9Po06roCEG4REMl3Q24Y8BftrxolgtAJLBqGUwkHr53oKSXYeOdrlxvA00sS5bc8zm"
 );
 
 import { FloatInput, FloatSelect } from "../../Components/FloatInput";
-import { FileUploader } from "react-drag-drop-files";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -83,7 +85,7 @@ export default function Subscription() {
   return (
     <Container>
       <FormContainer>
-        <Poster />
+        <Poster src={Logo} />
 
         <div className="register">
           <h1>Registro de Atleta</h1>
@@ -112,10 +114,10 @@ export default function Subscription() {
           />
 
           <FloatInput
-            type="text"
-            name={"cpf"}
+            type="date"
+            name={"birthday"}
             label="Data de nascimento:"
-            value={formData.cpf}
+            value={formData.date}
             onChange={handleInputChange}
           />
 
@@ -180,20 +182,27 @@ export default function Subscription() {
 
         <div className="address">
           <h1>Endereço completo</h1>
-
-          <FloatInput
-            type="text"
-            name="rua"
-            label="rua"
-            value={formData.rua}
-            onChange={handleInputChange}
-          />
-
           <FloatInput
             type="text"
             name="cep"
             label="CEP:"
             value={formData.cep}
+            onChange={handleInputChange}
+          />
+
+          <FloatInput
+            type="text"
+            name="pais"
+            label="País"
+            value={formData.pais}
+            onChange={handleInputChange}
+          />
+
+          <FloatInput
+            type="text"
+            name="estado"
+            label="Estado"
+            value={formData.estado}
             onChange={handleInputChange}
           />
 
@@ -207,9 +216,9 @@ export default function Subscription() {
 
           <FloatInput
             type="text"
-            name="numero"
-            label="Número"
-            value={formData.numero}
+            name="rua"
+            label="rua"
+            value={formData.rua}
             onChange={handleInputChange}
           />
 
@@ -218,14 +227,6 @@ export default function Subscription() {
             name="numero"
             label="Número"
             value={formData.numero}
-            onChange={handleInputChange}
-          />
-
-          <FloatInput
-            type="text"
-            name="estado"
-            label="Estado"
-            value={formData.estado}
             onChange={handleInputChange}
           />
         </div>
@@ -240,9 +241,15 @@ export default function Subscription() {
             required
           >
             <div className="laudo">
-              <p>Clique para selecionar o laudo médico ou arraste e solte</p>
+              {file && <span>Arquivo selecionado:</span>}
 
-              <span>Formatos Permitidos: PDF</span>
+              {file ? (
+                <p>{file.name}</p>
+              ) : (
+                <p>Clique para selecionar o laudo médico ou arraste e solte</p>
+              )}
+
+              {!file && <span>Formatos Permitidos: PDF</span>}
             </div>
           </FileUploader>
           <small>
@@ -257,7 +264,7 @@ export default function Subscription() {
               <span>documentos </span>e o <span>laudo médico</span> para
               comprovação de transição
             </p>
-            <input type="checkbox" id="docs" name="docs" />
+            <input type="checkbox" id="docs" name="docs" required />
             <span className="checkmark"></span>
           </Checkbox>
 
@@ -266,11 +273,11 @@ export default function Subscription() {
               Eu concordo com <span>termos de uso</span> e a{" "}
               <span>Política de Privacidade</span>
             </p>
-            <input type="checkbox" id="privacy" name="privacy" />
+            <input type="checkbox" id="privacy" name="privacy" required />
             <span className="checkmark"></span>
           </Checkbox>
 
-          <Button onClick={handlePurchase}>Pagar</Button>
+          <Button onClick={handlePurchase}>Pagar • 99R$</Button>
         </div>
       </FormContainer>
 

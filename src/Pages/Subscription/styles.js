@@ -32,6 +32,12 @@ export const FormContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 44px;
 
+  .address {
+    h1 {
+      margin-bottom: 24px;
+    }
+  }
+
   div {
     h1,
     h3 {
@@ -42,6 +48,7 @@ export const FormContainer = styled.div`
   .footer {
     display: flex;
     flex-direction: column;
+    margin-top: 12px;
 
     small {
       color: #fafafa;
@@ -141,7 +148,7 @@ export const Checkbox = styled.label`
 `;
 
 export const Poster = styled.img`
-  background-color: #fafafa;
+  background-color: #00132b;
   height: 98%;
   width: 100%;
   border-radius: 16px;
@@ -155,10 +162,11 @@ export const Button = styled.button`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 8px;
   margin: 10px;
   cursor: pointer;
+  font-weight: 500;
 
   &:hover {
     background-color: #996600;
