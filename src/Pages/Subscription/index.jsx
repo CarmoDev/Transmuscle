@@ -24,6 +24,9 @@ export default function Subscription() {
     bairro: "",
     estado: "",
   });
+  const [countryCode, setCountryCode] = useState("");
+  const [areaCode, setAreaCode] = useState("");
+  const [mainNumber, setMainNumber] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [file, setFile] = useState(null);
 
@@ -32,13 +35,42 @@ export default function Subscription() {
   const handleChange = (file) => {
     setFile(file);
   };
-  console.log(file);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
+    });
+  };
+
+  console.log({
+    countryCode,
+    areaCode,
+    mainNumber,
+  });
+
+  const handlePhoneNumberChange = (event) => {
+    const { name } = event.target;
+    const inputPhoneNumber = event.target.value;
+
+    // Remover caracteres não numéricos
+    const cleanPhoneNumber = inputPhoneNumber.replace(/\D/g, "");
+
+    // Aplicar a expressão regular para dividir o número
+    const matches = cleanPhoneNumber.match(/^(\d{1,4})(\d{2,5})(\d{4,})$/);
+
+    if (matches) {
+      const [, matchedCountryCode, matchedAreaCode, matchedMainNumber] =
+        matches;
+      setCountryCode(matchedCountryCode);
+      setAreaCode(matchedAreaCode);
+      setMainNumber(matchedMainNumber);
+    }
+
+    setFormData({
+      ...formData,
+      [name]: inputPhoneNumber,
     });
   };
 
@@ -128,7 +160,7 @@ export default function Subscription() {
             name="Telefone"
             label="Telefone(+55 11 91234-4321):"
             value={formData.telefone}
-            onChange={handleInputChange}
+            onChange={handlePhoneNumberChange}
           />
 
           <FloatInput
