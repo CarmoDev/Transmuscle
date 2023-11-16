@@ -16,13 +16,43 @@ import {
   faMoneyCheck,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const PurchaseModal = ({ open, onClose }) => {
   const [numberCard, setNumberCard] = useState("");
   const [nameCard, setNameCard] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
+  const [expYear, setExpYear] = useState("");
+  const [expoMonth, setExpMonth] = useState("");
   const [cvc, setCvc] = useState("");
   const [parcels, setParcels] = useState(1);
+  const [paymentResult, setPaymentResult] = useState(null);
+
+
+  const fazerPagamento = async () => {
+    try {
+      const paymentData = {
+        numberCard,
+        nameCard,
+        cvc,
+        parcels,
+        expYear,
+        expoMonth
+      };
+
+      const response = await axios.post(
+        "http://localhost:2727/payment",
+        paymentData
+      );
+
+      setPaymentResult(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Erro ao fazer o pagamento:", error);
+    }
+  };
+
+  console.log("paymentResult", paymentResult);
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
@@ -95,7 +125,22 @@ const PurchaseModal = ({ open, onClose }) => {
             <input
               placeholder="MM/YYYY"
               value={expirationDate}
-              onChange={(e) => setExpirationDate(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value;
+                const formattedValue = value
+                  .replace(/\D/g, "") 
+                  .slice(0, 6); 
+
+                const month = formattedValue.slice(0, 2);
+                const year = formattedValue.slice(2, 6);
+
+                const formattedDate = `${month}/${year}`;
+
+                setExpMonth(month);
+                setExpYear(year);
+                setExpirationDate(formattedDate); 
+
+              }}
             />
           </Input>
 
@@ -135,7 +180,9 @@ const PurchaseModal = ({ open, onClose }) => {
             Close
           </Button>
 
-          <PayButton color="primary">PAGAR</PayButton>
+          <PayButton color="primary" onClick={fazerPagamento}>
+            PAGAR
+          </PayButton>
         </Footer>
       </DialogActions>
     </Dialog>
