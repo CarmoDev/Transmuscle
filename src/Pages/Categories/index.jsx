@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { CategoriesContainer, Category, Container, Rules } from "./styles";
 
 import CategoriesData from "./utils/Categories";
 
 export default function Categories() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <h1>Categorias</h1>
@@ -35,7 +38,7 @@ export default function Categories() {
         ))}
       </CategoriesContainer>
 
-      <button>Desejo Competir</button>
+      <button onClick={() => navigate("/inscricao")}>Desejo Competir</button>
     </Container>
   );
 }
