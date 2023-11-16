@@ -1,16 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+
 import { Container, Button, FormContainer, Poster, Checkbox } from "./styles";
 import PurchaseModal from "../../checkout/purchaseModal";
 import { FileUploader } from "react-drag-drop-files";
 
 import Logo from "../../assets/images/GoldenLogoFull.png";
-
-const stripePromise = loadStripe(
-  "pk_test_51OBgZiASmfrlQVyLYPmjWhLFeqFT5yry9Po06roCEG4REMl3Q24Y8BftrxolgtAJLBqGUwkHr53oKSXYeOdrlxvA00sS5bc8zm"
-);
 
 import { FloatInput, FloatSelect } from "../../Components/FloatInput";
 
@@ -30,7 +25,6 @@ export default function Subscription() {
     estado: "",
   });
   const [modalVisible, setModalVisible] = useState(false);
-  const [clientSecret, setClientSecret] = useState("");
   const [file, setFile] = useState(null);
 
   const fileTypes = ["PDF"];
@@ -52,33 +46,7 @@ export default function Subscription() {
     setModalVisible(false);
   };
 
-  function getClientSecret() {
-    fetch("http://localhost:2727/payment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        formData,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setClientSecret(data.clientSecret);
-      })
-      .catch((error) => {
-        console.error("Erro ao obter o clientSecret:", error);
-      });
-  }
-
-  const appearance = {
-    theme: "stripe",
-  };
-  const options = {
-    clientSecret,
-    appearance,
-  };
-
   const handlePurchase = async () => {
-    await getClientSecret();
     setModalVisible(true);
   };
 
@@ -281,19 +249,7 @@ export default function Subscription() {
         </div>
       </FormContainer>
 
-      {clientSecret && (
-        <Elements
-          options={options}
-          stripe={stripePromise}
-          onClick={handlePurchase}
-        >
-          <PurchaseModal
-            open={modalVisible}
-            onCancel={closeModal}
-            clientSecret={clientSecret}
-          />
-        </Elements>
-      )}
+      <PurchaseModal open={modalVisible} onClose={closeModal} />
     </Container>
   );
 }
