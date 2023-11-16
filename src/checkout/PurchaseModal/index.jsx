@@ -21,6 +21,7 @@ import axios from "axios";
 const PurchaseModal = ({ open, onClose, formData }) => {
   const [numberCard, setNumberCard] = useState("");
   const [nameCard, setNameCard] = useState("");
+  const [cupom, setCupom] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [expYear, setExpYear] = useState("");
   const [expoMonth, setExpMonth] = useState("");
@@ -46,7 +47,8 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         parcels,
         expYear,
         expoMonth,
-        categoria
+        categoria,
+        cupom
       };
 
 
@@ -72,7 +74,8 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         cep,
         estado,
         numero,
-        categoria
+        categoria,
+        cupom
       };
 
 
@@ -98,7 +101,8 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         cep,
         estado,
         numero,
-        categoria
+        categoria,
+        cupom
       };
 
 
@@ -179,6 +183,11 @@ const PurchaseModal = ({ open, onClose, formData }) => {
             placeholder="Nome no cartão"
             value={nameCard}
             onChange={(e) => setNameCard(e.target.value)}
+          />
+          <input
+            placeholder="Cupom"
+            value={cupom}
+            onChange={(e) => setCupom(e.target.value)}
           />
         </Input>
 

@@ -11,11 +11,45 @@ import { useState } from "react";
 
 const ModalOng = ({ open, onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
     setSelectedFile(file);
+  };
+
+  const enviar = async () => {
+    if (!selectedFile) {
+      console.error("Nenhum arquivo selecionado.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("pdfFile", selectedFile);
+
+    const data = {
+      name: name,
+      email: email
+    };
+  
+    formData.append("data", JSON.stringify(data));
+
+    try {
+      const response = await fetch("http://localhost:2727/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        console.log("Arquivo enviado com sucesso!");
+      } else {
+        console.error("Falha ao enviar o arquivo.");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar o arquivo:", error);
+    }
   };
 
   return (
@@ -31,11 +65,13 @@ const ModalOng = ({ open, onClose }) => {
       </Header>
 
       <DialogContent>
+        <input placeholder="Nome" type="text" onChange={(event) => setName(event.target.value)} />
         <input
-          type="file"
-          accept=".pdf, .docx, .doc"
-          onChange={handleFileChange}
+          type="email"
+          placeholder="Email"
+          onChange={(event) => setEmail(event.target.value)}
         />
+        <input type="file" accept=".pdf" onChange={handleFileChange} />
         <br />
         <small>Apenas PDF, DOCX, Doc</small>
       </DialogContent>
@@ -45,7 +81,9 @@ const ModalOng = ({ open, onClose }) => {
             Fechar
           </Button>
 
-          <PayButton color="primary">Enviar</PayButton>
+          <PayButton onClick={enviar} color="primary">
+            Enviar
+          </PayButton>
         </Footer>
       </DialogActions>
     </Dialog>
