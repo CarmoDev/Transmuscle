@@ -8,6 +8,7 @@ import { FileUploader } from "react-drag-drop-files";
 import Logo from "../../assets/images/GoldenLogoFull.png";
 
 import { FloatInput, FloatSelect } from "../../Components/FloatInput";
+import ModalOng from "./Components/ModalOng";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -28,6 +29,7 @@ export default function Subscription() {
   const [areaCode, setAreaCode] = useState("");
   const [mainNumber, setMainNumber] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalOngVisible, setModalOngVisible] = useState(true);
   const [file, setFile] = useState(null);
 
   const fileTypes = ["PDF"];
@@ -78,12 +80,18 @@ export default function Subscription() {
     setModalVisible(false);
   };
 
+  const closeModalOng = () => {
+    setModalOngVisible(false);
+  };
+
   const handlePurchase = async () => {
     setModalVisible(true);
   };
 
   return (
     <Container>
+      <ModalOng open={modalOngVisible} onClose={closeModalOng} />
+
       <FormContainer>
         <Poster src={Logo} />
 
@@ -281,7 +289,11 @@ export default function Subscription() {
         </div>
       </FormContainer>
 
-      <PurchaseModal open={modalVisible} formData={formData} onClose={closeModal} />
+      <PurchaseModal
+        open={modalVisible}
+        formData={formData}
+        onClose={closeModal}
+      />
     </Container>
   );
 }
