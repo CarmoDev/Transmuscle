@@ -126,7 +126,7 @@ export default function Subscription() {
           <FloatInput
             type="text"
             name="Telefone"
-            label="Telefone:"
+            label="Telefone(+55 11 91234-4321):"
             value={formData.telefone}
             onChange={handleInputChange}
           />
