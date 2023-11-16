@@ -4,7 +4,8 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 99dvh;
+  min-height: 99dvh;
+  overflow-x: hidden;
 
   h1 {
     font-size: 64px;
