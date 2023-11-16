@@ -281,7 +281,7 @@ export default function Subscription() {
         </div>
       </FormContainer>
 
-      <PurchaseModal open={modalVisible} onClose={closeModal} />
+      <PurchaseModal open={modalVisible} formData={formData} onClose={closeModal} />
     </Container>
   );
 }

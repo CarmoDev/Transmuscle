@@ -18,7 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const PurchaseModal = ({ open, onClose }) => {
+const PurchaseModal = ({ open, onClose, formData }) => {
   const [numberCard, setNumberCard] = useState("");
   const [nameCard, setNameCard] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
@@ -27,7 +27,15 @@ const PurchaseModal = ({ open, onClose }) => {
   const [cvc, setCvc] = useState("");
   const [parcels, setParcels] = useState(1);
   const [paymentResult, setPaymentResult] = useState(null);
-
+  const categoria = formData.categoria;
+  const name = formData.name;
+  const cpf = formData.cpf;
+  const email = formData.email;
+  const estado = formData.estado;
+  const rua = formData.rua;
+  const cep = formData.cep;
+  const numero = formData.numero;
+  
 
   const fazerPagamento = async () => {
     try {
@@ -37,8 +45,10 @@ const PurchaseModal = ({ open, onClose }) => {
         cvc,
         parcels,
         expYear,
-        expoMonth
+        expoMonth,
+        categoria
       };
+
 
       const response = await axios.post(
         "http://localhost:2727/payment",
@@ -52,8 +62,65 @@ const PurchaseModal = ({ open, onClose }) => {
     }
   };
 
-  console.log("paymentResult", paymentResult);
+  const fazerPagamentoBoleto = async () => {
+    try {
+      const paymentData = {
+        name,
+        cpf,
+        email,
+        rua,
+        cep,
+        estado,
+        numero,
+        categoria
+      };
 
+
+      const response = await axios.post(
+        "http://localhost:2727/boleto",
+        paymentData
+      );
+
+      setPaymentResult(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Erro ao fazer o pagamento:", error);
+    }
+  };
+
+  const fazerPagamentoPix = async () => {
+    try {
+      const paymentData = {
+        name,
+        cpf,
+        email,
+        rua,
+        cep,
+        estado,
+        numero,
+        categoria
+      };
+
+
+      const response = await axios.post(
+        "http://localhost:2727/pix",
+        paymentData
+      );
+
+      setPaymentResult(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Erro ao fazer o pagamento:", error);
+    }
+  };
+
+  console.log("paymentResult", paymentResult);
+//cartão retorna se foi bem sucedido   (dai seria legal fazer uma página de sucesso caso retorne SUCESSO no pagamento)
+//boleto retorna url com pdf
+//pix retorna url com link de um png
+
+//falta tratar o número de telefone para passar para o pix
+//falta a dinamica dos checkbox da forma de pagamento (se for boleto ou pix,  some os dados do cartão e ele só clica no botão pagar e chama a função correta)
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle>Checkout</DialogTitle>
@@ -180,7 +247,7 @@ const PurchaseModal = ({ open, onClose }) => {
             Close
           </Button>
 
-          <PayButton color="primary" onClick={fazerPagamento}>
+          <PayButton color="primary" onClick={fazerPagamentoPix}>
             PAGAR
           </PayButton>
         </Footer>
