@@ -46,7 +46,6 @@ export const CategoriesContainer = styled.section`
 `;
 
 export const Category = styled.article`
-  min-width: 256px;
   padding: 22px 24px;
 
   grid-column: ${({ isPrelast, isLast }) =>
@@ -89,6 +88,15 @@ export const Rules = styled.article`
 
     li {
       color: #fafafa;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      margin-left: 0px;
     }
   }
 `;

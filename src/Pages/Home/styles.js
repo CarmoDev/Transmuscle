@@ -6,9 +6,19 @@ export const Container = styled.main`
   justify-content: center;
   gap: 64px;
   height: 99dvh;
+  overflow-x: hidden;
 
   img {
-    width: 600px;
+    width: 40%;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    height: 70dvh;
+
+    img {
+      width: 60%;
+    }
   }
 `;
 
@@ -21,5 +31,20 @@ export const DescriptionContainer = styled.section`
 
   p {
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    max-width: 80%;
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+    }
   }
 `;

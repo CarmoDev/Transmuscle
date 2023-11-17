@@ -59,6 +59,16 @@
   text-align: right;
 }
 
+@media screen and (max-width: 768px) {
+  .left > .content {
+    align-items: flex-start;
+  }
+
+  .left > .content > ul > li {
+    text-align: left;
+  }
+}
+
 /* Place the container to the right */
 .right {
   left: 50%;
