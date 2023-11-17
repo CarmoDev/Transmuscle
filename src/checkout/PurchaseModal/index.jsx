@@ -48,7 +48,8 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         expYear,
         expoMonth,
         categoria,
-        cupom
+        cupom,
+        email
       };
 
 
@@ -184,6 +185,10 @@ const PurchaseModal = ({ open, onClose, formData }) => {
             value={nameCard}
             onChange={(e) => setNameCard(e.target.value)}
           />
+     
+        </Input>
+        <Input style={{ marginTop: 12 }}>
+        
           <input
             placeholder="Cupom"
             value={cupom}
@@ -256,7 +261,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
             Close
           </Button>
 
-          <PayButton color="primary" onClick={fazerPagamentoPix}>
+          <PayButton color="primary" onClick={fazerPagamento}>
             PAGAR
           </PayButton>
         </Footer>
