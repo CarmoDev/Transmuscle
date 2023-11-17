@@ -7,6 +7,17 @@ export const Container = styled.footer`
   flex-shrink: 0;
   background-color: #000c1c;
   padding: 64px 0 24px 0;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 `;
 
 export const Mark = styled.aside`
@@ -19,6 +30,16 @@ export const Mark = styled.aside`
 
   img {
     width: 240px;
+  }
+
+  @media screen and (max-width: 768px) {
+    h2 {
+      display: none;
+    }
+
+    img {
+      width: 120px;
+    }
   }
 `;
 
@@ -59,5 +80,21 @@ export const Social = styled.aside`
 
   a + a {
     margin-top: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    margin-bottom: 24px;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a + a {
+      margin-top: 0;
+    }
+
+    p {
+      display: none;
+    }
   }
 `;

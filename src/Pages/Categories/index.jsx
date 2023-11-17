@@ -48,7 +48,8 @@ export default function Categories() {
 
       {window.screen.width <= 1100 && (
         <Swiper
-          slidesPerView={1}
+          slidesPerView={"auto"}
+          centeredSlides={true}
           spaceBetween={16}
           style={{ maxWidth: "90%" }}
           pagination={{

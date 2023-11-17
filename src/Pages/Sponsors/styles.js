@@ -15,6 +15,12 @@ export const Container = styled.section`
     margin-bottom: 48px;
     text-decoration: underline;
   }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 24px;
+    }
+  }
 `;
 
 export const SponsorsContainer = styled.div`
@@ -42,5 +48,11 @@ export const Sponsor = styled.article`
   #AzumaDojo {
     width: 140px;
     border-radius: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    #AzumaDojo {
+      width: 90px;
+    }
   }
 `;
