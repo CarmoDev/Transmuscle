@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { Footer, Header, PayButton } from "./styles";
 import { useState } from "react";
+import axios from "axios";
 
 const ModalOng = ({ open, onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -31,24 +32,26 @@ const ModalOng = ({ open, onClose }) => {
 
     const data = {
       name: name,
-      email: email
+      email: email,
     };
-  
+
     formData.append("data", JSON.stringify(data));
 
     try {
-      const response = await fetch("http://localhost:2727/upload", {
-        method: "POST",
-        body: formData
-      });
+      const response = await axios.post(
+        "https://alive-fly-lab-coat.cyclic.app/upload",
+        formData
+      );
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Arquivo enviado com sucesso!");
       } else {
         console.error("Falha ao enviar o arquivo.");
       }
     } catch (error) {
       console.error("Erro ao enviar o arquivo:", error);
+    } finally {
+      onClose();
     }
   };
 
@@ -64,9 +67,23 @@ const ModalOng = ({ open, onClose }) => {
         </h4>
       </Header>
 
-      <DialogContent>
-        <input placeholder="Nome" type="text" onChange={(event) => setName(event.target.value)} />
+      <DialogContent
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 8,
+        }}
+      >
         <input
+          style={{ width: "45%" }}
+          placeholder="Nome"
+          type="text"
+          onChange={(event) => setName(event.target.value)}
+        />
+        <input
+          style={{ width: "45%" }}
           type="email"
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}

@@ -36,7 +36,6 @@ const PurchaseModal = ({ open, onClose, formData }) => {
   const rua = formData.rua;
   const cep = formData.cep;
   const numero = formData.numero;
-  
 
   const fazerPagamento = async () => {
     try {
@@ -49,12 +48,11 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         expoMonth,
         categoria,
         cupom,
-        email
+        email,
       };
 
-
       const response = await axios.post(
-        "http://localhost:2727/payment",
+        "https://alive-fly-lab-coat.cyclic.app/payment",
         paymentData
       );
 
@@ -76,12 +74,11 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         estado,
         numero,
         categoria,
-        cupom
+        cupom,
       };
 
-
       const response = await axios.post(
-        "http://localhost:2727/boleto",
+        "https://alive-fly-lab-coat.cyclic.app/boleto",
         paymentData
       );
 
@@ -103,12 +100,11 @@ const PurchaseModal = ({ open, onClose, formData }) => {
         estado,
         numero,
         categoria,
-        cupom
+        cupom,
       };
 
-
       const response = await axios.post(
-        "http://localhost:2727/pix",
+        "https://alive-fly-lab-coat.cyclic.app/pix",
         paymentData
       );
 
@@ -120,12 +116,12 @@ const PurchaseModal = ({ open, onClose, formData }) => {
   };
 
   console.log("paymentResult", paymentResult);
-//cartão retorna se foi bem sucedido   (dai seria legal fazer uma página de sucesso caso retorne SUCESSO no pagamento)
-//boleto retorna url com pdf
-//pix retorna url com link de um png
+  //cartão retorna se foi bem sucedido   (dai seria legal fazer uma página de sucesso caso retorne SUCESSO no pagamento)
+  //boleto retorna url com pdf
+  //pix retorna url com link de um png
 
-//falta tratar o número de telefone para passar para o pix
-//falta a dinamica dos checkbox da forma de pagamento (se for boleto ou pix,  some os dados do cartão e ele só clica no botão pagar e chama a função correta)
+  //falta tratar o número de telefone para passar para o pix
+  //falta a dinamica dos checkbox da forma de pagamento (se for boleto ou pix,  some os dados do cartão e ele só clica no botão pagar e chama a função correta)
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle>Checkout</DialogTitle>
@@ -185,10 +181,8 @@ const PurchaseModal = ({ open, onClose, formData }) => {
             value={nameCard}
             onChange={(e) => setNameCard(e.target.value)}
           />
-     
         </Input>
         <Input style={{ marginTop: 12 }}>
-        
           <input
             placeholder="Cupom"
             value={cupom}
@@ -208,9 +202,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
               value={expirationDate}
               onChange={(e) => {
                 const value = e.target.value;
-                const formattedValue = value
-                  .replace(/\D/g, "") 
-                  .slice(0, 6); 
+                const formattedValue = value.replace(/\D/g, "").slice(0, 6);
 
                 const month = formattedValue.slice(0, 2);
                 const year = formattedValue.slice(2, 6);
@@ -219,8 +211,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
 
                 setExpMonth(month);
                 setExpYear(year);
-                setExpirationDate(formattedDate); 
-
+                setExpirationDate(formattedDate);
               }}
             />
           </Input>
