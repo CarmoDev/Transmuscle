@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import { Container, Button, FormContainer, Poster, Checkbox } from "./styles";
-import PurchaseModal from "../../checkout/purchaseModal";
+import PurchaseModal from "../../checkout/PurchaseModal";
 import { FileUploader } from "react-drag-drop-files";
 
 import Logo from "../../assets/images/GoldenLogoFull.png";
