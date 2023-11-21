@@ -1,10 +1,12 @@
 import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
 import { useState } from "react";
 import { Overlay } from "./styles";
+import ModalPix from "../Modal";
 initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
 
 export default function Checkout() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [qrCode, setQrCode] = useState();
   const [qrCodeImg, setQrCodeImg] = useState();
 
@@ -38,10 +40,16 @@ export default function Checkout() {
       })
         .then((response) => response.json())
         .then((response) => {
-          console.log(response);
+          console.log("aq", response);
           setQrCode(response.qrCodeText);
           setQrCodeImg(response.qrCodeIMG);
           resolve();
+
+          if (response) {
+            openNewTab(response);
+          }
+
+          // setShowModal(true);
         })
         .catch((error) => {
           console.log("Error on payment", error);
@@ -58,6 +66,19 @@ export default function Checkout() {
 
   const onReady = async () => {
     setIsLoading(false);
+  };
+
+  function openNewTab(url) {
+    const newWindow = window.open(url, "_blank");
+    if (newWindow) {
+      newWindow.focus();
+    } else {
+      console.error("Não foi possível abrir a nova guia");
+    }
+  }
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -79,6 +100,8 @@ export default function Checkout() {
           height={200}
         />
       </div>
+      <ModalPix open={showModal} onClose={closeModal} qrCodeImg={qrCodeImg} />
+
     </Overlay>
   );
 }
