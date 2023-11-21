@@ -21,6 +21,22 @@ export const Container = styled.section`
       font-size: 24px;
     }
   }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+    @media screen and (max-width: 768px) {
+      width: 80%;
+    }
+  }
 `;
 
 export const SponsorsContainer = styled.div`
@@ -30,10 +46,13 @@ export const SponsorsContainer = styled.div`
 `;
 
 export const Sponsor = styled.article`
+  width: 280px;
+  height: 200px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 14px;
 
   img {

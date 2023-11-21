@@ -10,18 +10,28 @@ export default [
     id: "techT",
   },
   {
-    name: "Azuma Dojo",
-    url: require("../logos/azuma.jpg"),
-    id: "AzumaDojo",
-  },
-  {
     name: "Transguys",
     url: require("../logos/Transguys.png"),
     id: "Transguys",
   },
   {
+    name: "Azuma Dojo",
+    url: require("../logos/azuma.jpg"),
+    id: "AzumaDojo",
+  },
+  {
     name: "Voz Da Diversidade",
     url: require("../logos/VozDaDiversidade.png"),
     id: "VozDaDiversidade",
+  },
+  {
+    name: "Mr. Rice",
+    url: require("../logos/MrRice.png"),
+    id: "MrRice",
+  },
+  {
+    name: "BeDifferent Clinic",
+    url: require("../logos/BeDifferent.png"),
+    id: "BeDifferent",
   },
 ];

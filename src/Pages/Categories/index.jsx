@@ -48,6 +48,7 @@ export default function Categories() {
 
       {window.screen.width <= 1100 && (
         <Swiper
+          autoHeight={true}
           slidesPerView={"auto"}
           centeredSlides={true}
           spaceBetween={16}
@@ -55,7 +56,6 @@ export default function Categories() {
           pagination={{
             dynamicBullets: true,
           }}
-          navigation={true}
           modules={[Pagination, Navigation]}
         >
           {CategoriesData.map((category) => (
