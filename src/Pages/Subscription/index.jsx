@@ -9,6 +9,7 @@ import Logo from "../../assets/images/GoldenLogoFull.png";
 
 import { FloatInput, FloatSelect } from "../../Components/FloatInput";
 import ModalOng from "./Components/ModalOng";
+import Checkout from "../../Components/PaymentBrick";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -289,11 +290,7 @@ export default function Subscription() {
         </div>
       </FormContainer>
 
-      <PurchaseModal
-        open={modalVisible}
-        formData={formData}
-        onClose={closeModal}
-      />
+      {modalVisible && <Checkout />}
     </Container>
   );
 }
