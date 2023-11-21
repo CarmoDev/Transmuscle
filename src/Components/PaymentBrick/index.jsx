@@ -7,8 +7,6 @@ initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
 export default function Checkout() {
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [qrCode, setQrCode] = useState();
-  const [qrCodeImg, setQrCodeImg] = useState();
 
   const initialization = {
     amount: 100,
@@ -41,15 +39,14 @@ export default function Checkout() {
         .then((response) => response.json())
         .then((response) => {
           console.log("aq", response);
-          setQrCode(response.qrCodeText);
-          setQrCodeImg(response.qrCodeIMG);
+
+          setShowModal(true);
+
           resolve();
 
           if (response) {
-            openNewTab(response);
+            openNewTab(response.qrcodeURL);
           }
-
-          // setShowModal(true);
         })
         .catch((error) => {
           console.log("Error on payment", error);
@@ -77,10 +74,6 @@ export default function Checkout() {
     }
   }
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <Overlay>
       {isLoading && <div className="loader" />}
@@ -91,17 +84,6 @@ export default function Checkout() {
         onReady={onReady}
         onError={onError}
       />
-      <div>
-        <p>{qrCode}</p>
-        <img
-          src={`data:image/png;base64, ${qrCodeImg}`}
-          alt="Red dot"
-          width={200}
-          height={200}
-        />
-      </div>
-      <ModalPix open={showModal} onClose={closeModal} qrCodeImg={qrCodeImg} />
-
     </Overlay>
   );
 }

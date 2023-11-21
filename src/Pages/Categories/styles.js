@@ -48,8 +48,7 @@ export const CategoriesContainer = styled.section`
 export const Category = styled.article`
   padding: 22px 24px;
 
-  grid-column: ${({ isPrelast, isLast }) =>
-    isPrelast ? "span 2" : isLast && "1/4"};
+  grid-column: ${({ isLast }) => isLast && "span 2"};
 
   background: rgba(0, 47, 94, 0.42);
   border-radius: 16px;

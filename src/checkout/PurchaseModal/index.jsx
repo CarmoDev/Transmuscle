@@ -275,6 +275,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
           />
         </Input>
       </DialogContent>
+
       <DialogActions>
         <Footer>
           <Button onClick={onClose} color="primary">

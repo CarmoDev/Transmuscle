@@ -77,6 +77,13 @@ export const FormContainer = styled.div`
       font-size: 12px;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    height: max-content;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Checkbox = styled.label`

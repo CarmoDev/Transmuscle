@@ -53,7 +53,6 @@ export default function Checkout() {
 
     setIsLoading(true);
 
-   
     try {
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
@@ -92,6 +91,7 @@ export default function Checkout() {
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>
+
       {message && <div id="payment-message">{message}</div>}
     </form>
   );

@@ -5,7 +5,7 @@ export default [
     id: "iBrat",
   },
   {
-    name: "techT",
+    name: "TechT",
     url: require("../logos/techT.png"),
     id: "techT",
   },
