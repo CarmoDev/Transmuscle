@@ -164,4 +164,82 @@ export default [
       },
     ],
   },
+  {
+    title: "PCD",
+
+    subcategories: [
+      {
+        title: "Sem Hormonioterapia",
+        rules: ["com mastectomia - Única", "sem mastectomia - Única"],
+      },
+      {
+        title: "Master",
+        rules: [
+          "acima de 35 anos com mastectomia: Única",
+          "acima de 35 anos sem mastectomia: Única",
+        ],
+      },
+      {
+        title: "Sênior de 26 a 34 anos",
+        rules: [
+          "até 77 kg com mastectomia: Única",
+          "até 77 kg sem mastectomia: Única",
+          "de 77 até 86 kg com mastectomia: Única",
+          "de 77 até 86 kg sem mastectomia: Única",
+          "de 86 até 96 kg com mastectomia: Única",
+          "de 86 até 96 kg sem mastectomia: Única",
+          "de 96 até 110 kg com mastectomia: Única",
+          "de 96 até 110 kg sem mastectomia: Única",
+          "acima de 110 kg com mastectomia: Única",
+          "acima de 110 kg sem mastectomia: Única",
+        ],
+      },
+      {
+        title: "Junior",
+        rules: [
+          "de 18 a 25 anos completos no ano da competição, com mastectomia : Única",
+          "de 18 a 25 anos completos no ano da competição, sem mastectomia : Única",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Não - Bináries",
+
+    subcategories: [
+      {
+        title: "Sem Hormonioterapia",
+        rules: ["com mastectomia - Única", "sem mastectomia - Única"],
+      },
+      {
+        title: "Master",
+        rules: [
+          "acima de 35 anos com mastectomia: Única",
+          "acima de 35 anos sem mastectomia: Única",
+        ],
+      },
+      {
+        title: "Sênior de 26 a 34 anos",
+        rules: [
+          "até 77 kg com mastectomia: Única",
+          "até 77 kg sem mastectomia: Única",
+          "de 77 até 86 kg com mastectomia: Única",
+          "de 77 até 86 kg sem mastectomia: Única",
+          "de 86 até 96 kg com mastectomia: Única",
+          "de 86 até 96 kg sem mastectomia: Única",
+          "de 96 até 110 kg com mastectomia: Única",
+          "de 96 até 110 kg sem mastectomia: Única",
+          "acima de 110 kg com mastectomia: Única",
+          "acima de 110 kg sem mastectomia: Única",
+        ],
+      },
+      {
+        title: "Junior",
+        rules: [
+          "de 18 a 25 anos completos no ano da competição, com mastectomia : Única",
+          "de 18 a 25 anos completos no ano da competição, sem mastectomia : Única",
+        ],
+      },
+    ],
+  },
 ];
