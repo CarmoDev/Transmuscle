@@ -2,7 +2,7 @@
 import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
 import { useState } from "react";
 import { Overlay } from "./styles";
-initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
+initMercadoPago("APP_USR-bb99ea4d-1c64-49cf-84c2-da66be59de6e");
 
 export default function Checkout({ amount, athleteForm }) {
   const [isLoading, setIsLoading] = useState(true);
