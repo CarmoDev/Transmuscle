@@ -35,7 +35,12 @@ const ModalCoupon = ({ open, onClose, onConfirm }) => {
             gap: 8,
           }}
         >
-          <input type="text" value={cupon} onChange={handleFileChange} />
+          <input
+            type="text"
+            placeholder={"Cupom"}
+            value={cupon}
+            onChange={handleFileChange}
+          />
           <br />
           <small>Apenas PDF, DOCX, Doc</small>
         </DialogContent>

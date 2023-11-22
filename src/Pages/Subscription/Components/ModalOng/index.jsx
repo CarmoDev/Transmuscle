@@ -90,7 +90,11 @@ const ModalOng = ({ open, onClose }) => {
               placeholder="Email"
               onChange={(event) => setEmail(event.target.value)}
             />
-            <input type="file" accept=".pdf" onChange={handleFileChange} />
+            <input
+              type="file"
+              accept=".pdf, .docx"
+              onChange={handleFileChange}
+            />
             <br />
             <small>Apenas PDF, DOCX, Doc</small>
           </DialogContent>

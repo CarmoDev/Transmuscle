@@ -20,4 +20,13 @@ export const PayButton = styled.button`
   color: #fafafa;
   background-color: #1f71ff;
   padding: 8px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2888ff;
+  }
+
+  &:active {
+    background-color: #0a51eb;
+  }
 `;
