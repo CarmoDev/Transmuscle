@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Overlay } from "./styles";
 initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
 
-export default function Checkout({ amount }) {
+export default function Checkout({ amount, athleteForm }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const initialization = {
@@ -22,7 +22,11 @@ export default function Checkout({ amount }) {
   };
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
-    // callback chamado ao clicar no botão de submissão dos dados
+    const form = {
+      ...formData,
+      athleteForm,
+    };
+
     const route =
       selectedPaymentMethod === "credit_card"
         ? "process_payment"
@@ -33,7 +37,7 @@ export default function Checkout({ amount }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(form),
       })
         .then((response) => response.json())
         .then((response) => {

@@ -34,7 +34,7 @@ export default function Subscription() {
   const [modalOngVisible, setModalOngVisible] = useState(true);
   const [file, setFile] = useState(null);
   const [cantPay, setCantPay] = useState(false);
-  const [isCouponVisible, setCouponVisible] = useState(true);
+  const [isCouponVisible, setCouponVisible] = useState(false);
   const [amount, setAmount] = useState(99);
 
   const fileTypes = ["PDF"];
@@ -65,6 +65,7 @@ export default function Subscription() {
 
   const closeModalCoupon = () => {
     setCouponVisible(false);
+    setModalVisible(true);
   };
 
   const handlePurchase = async (cupom) => {
@@ -313,7 +314,7 @@ export default function Subscription() {
         onClose={closeModalCoupon}
         onConfirm={handlePurchase}
       />
-      {modalVisible && <Checkout amount={amount} />}
+      {modalVisible && <Checkout amount={amount} athleteForm={formData} />}
     </Container>
   );
 }
