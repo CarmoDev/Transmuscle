@@ -1,15 +1,14 @@
+/* eslint-disable react/prop-types */
 import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
 import { useState } from "react";
 import { Overlay } from "./styles";
-import ModalPix from "../Modal";
 initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
 
-export default function Checkout() {
+export default function Checkout({ amount }) {
   const [isLoading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
 
   const initialization = {
-    amount: 1,
+    amount: amount,
   };
 
   const customization = {
@@ -39,8 +38,6 @@ export default function Checkout() {
         .then((response) => response.json())
         .then((response) => {
           console.log("aq", response);
-
-          setShowModal(true);
 
           resolve();
 

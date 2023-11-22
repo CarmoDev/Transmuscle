@@ -8,6 +8,7 @@ import Logo from "./Assets/banner.jpg";
 
 import { FloatInput, FloatSelect } from "../../Components/FloatInput";
 import ModalOng from "./Components/ModalOng";
+import ModalCoupon from "./Components/ModalCoupon";
 import Checkout from "../../Components/PaymentBrick";
 
 export default function Subscription() {
@@ -25,15 +26,15 @@ export default function Subscription() {
     bairro: "",
     estado: "",
   });
-  const [countryCode, setCountryCode] = useState("");
-  const [areaCode, setAreaCode] = useState("");
-  const [mainNumber, setMainNumber] = useState("");
+
   const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
   const [isDocsChecked, setIsDocsChecked] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalOngVisible, setModalOngVisible] = useState(true);
   const [file, setFile] = useState(null);
-  const [cantPay, setCantPay] = useState(true);
+  const [cantPay, setCantPay] = useState(false);
+  const [isCouponVisible, setCouponVisible] = useState(true);
+  const [amount, setAmount] = useState(99);
 
   const fileTypes = ["PDF"];
 
@@ -57,47 +58,34 @@ export default function Subscription() {
     setIsDocsChecked(event.target.checked);
   };
 
-  const handlePhoneNumberChange = (event) => {
-    const { name } = event.target;
-    const inputPhoneNumber = event.target.value;
-
-    // Remover caracteres não numéricos
-    const cleanPhoneNumber = inputPhoneNumber.replace(/\D/g, "");
-
-    // Aplicar a expressão regular para dividir o número
-    const matches = cleanPhoneNumber.match(/^(\d{1,4})(\d{2,5})(\d{4,})$/);
-
-    if (matches) {
-      const [, matchedCountryCode, matchedAreaCode, matchedMainNumber] =
-        matches;
-      setCountryCode(matchedCountryCode);
-      setAreaCode(matchedAreaCode);
-      setMainNumber(matchedMainNumber);
-    }
-
-    setFormData({
-      ...formData,
-      [name]: inputPhoneNumber,
-    });
-  };
-
   const closeModalOng = () => {
     setModalOngVisible(false);
   };
 
-  const handlePurchase = async () => {
-    setModalVisible(true);
+  const closeModalCoupon = () => {
+    setCouponVisible(false);
   };
 
-  useEffect(() => {
-    const allFilled = Object.keys(formData).length >= 16;
-
-    if (allFilled && file && isDocsChecked && isPrivacyChecked) {
-      return setCantPay(false);
+  const handlePurchase = async (cupom) => {
+    if (cupom?.includes("A9")) {
+      setAmount(0);
+      return setCouponVisible(false);
+    } else {
+      setModalVisible(true);
     }
 
-    setCantPay(true);
-  }, [formData, file, isDocsChecked, isPrivacyChecked]);
+    return setCouponVisible(false);
+  };
+
+  // useEffect(() => {
+  //   const allFilled = Object.keys(formData).length >= 16;
+
+  //   if (allFilled && file && isDocsChecked && isPrivacyChecked) {
+  //     return setCantPay(false);
+  //   }
+
+  //   setCantPay(true);
+  // }, [formData, file, isDocsChecked, isPrivacyChecked]);
 
   return (
     <Container>
@@ -181,7 +169,7 @@ export default function Subscription() {
             name="Telefone"
             label="Telefone(+55 11 91234-4321):"
             value={formData.telefone}
-            onChange={handlePhoneNumberChange}
+            onChange={handleInputChange}
           />
 
           <FloatInput
@@ -312,13 +300,18 @@ export default function Subscription() {
             <span className="checkmark"></span>
           </Checkbox>
 
-          <Button onClick={handlePurchase} disabled={cantPay}>
+          <Button onClick={() => setCouponVisible(true)} disabled={cantPay}>
             Pagar • 99R$
           </Button>
         </div>
       </FormContainer>
 
-      {modalVisible && <Checkout />}
+      <ModalCoupon
+        open={isCouponVisible}
+        onClose={closeModalCoupon}
+        onConfirm={handlePurchase}
+      />
+      {modalVisible && <Checkout amount={amount} />}
     </Container>
   );
 }
