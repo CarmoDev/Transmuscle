@@ -5,7 +5,7 @@ export const Container = styled.main`
   align-items: center;
   justify-content: center;
   gap: 64px;
-  height: 100dvh;
+  min-height: 100dvh;
 `;
 
 export const Input = styled.input`
@@ -174,8 +174,18 @@ export const Button = styled.button`
   margin: 10px;
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.2s;
 
   &:hover {
-    background-color: #996600;
+    background-color: #d1a73e;
+  }
+
+  &:active {
+    background-color: #a77127;
+  }
+
+  &[disabled] {
+    background-color: #ccc;
+    cursor: default;
   }
 `;

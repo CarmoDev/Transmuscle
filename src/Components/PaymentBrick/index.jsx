@@ -9,7 +9,7 @@ export default function Checkout() {
   const [showModal, setShowModal] = useState(false);
 
   const initialization = {
-    amount: 100,
+    amount: 1,
   };
 
   const customization = {
@@ -29,7 +29,7 @@ export default function Checkout() {
         ? "process_payment"
         : "v1/payments";
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3000/${route}`, {
+      fetch(`https://bronze-nightingale-gear.cyclic.app/${route}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export default function Checkout() {
 
           resolve();
 
-          if (response) {
+          if (response && selectedPaymentMethod !== "credit_card") {
             openNewTab(response.qrcodeURL);
           }
         })

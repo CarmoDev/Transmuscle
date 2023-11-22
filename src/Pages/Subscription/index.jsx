@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container, Button, FormContainer, Poster, Checkbox } from "./styles";
-import PurchaseModal from "../../checkout/PurchaseModal";
 import { FileUploader } from "react-drag-drop-files";
 
 import Logo from "./Assets/banner.jpg";
@@ -30,9 +29,12 @@ export default function Subscription() {
   const [countryCode, setCountryCode] = useState("");
   const [areaCode, setAreaCode] = useState("");
   const [mainNumber, setMainNumber] = useState("");
+  const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
+  const [isDocsChecked, setIsDocsChecked] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalOngVisible, setModalOngVisible] = useState(true);
   const [file, setFile] = useState(null);
+  const [cantPay, setCantPay] = useState(true);
 
   const fileTypes = ["PDF"];
 
@@ -48,11 +50,13 @@ export default function Subscription() {
     });
   };
 
-  console.log({
-    countryCode,
-    areaCode,
-    mainNumber,
-  });
+  const handlePrivacyChange = (event) => {
+    setIsPrivacyChecked(event.target.checked);
+  };
+
+  const handleDocsChange = (event) => {
+    setIsDocsChecked(event.target.checked);
+  };
 
   const handlePhoneNumberChange = (event) => {
     const { name } = event.target;
@@ -78,10 +82,6 @@ export default function Subscription() {
     });
   };
 
-  const closeModal = () => {
-    setModalVisible(false);
-  };
-
   const closeModalOng = () => {
     setModalOngVisible(false);
   };
@@ -92,6 +92,16 @@ export default function Subscription() {
     addAtleta(formData, file);
     setModalVisible(true);
   };
+
+  useEffect(() => {
+    const allFilled = Object.keys(formData).length >= 16;
+
+    if (allFilled && file && isDocsChecked && isPrivacyChecked) {
+      return setCantPay(false);
+    }
+
+    setCantPay(true);
+  }, [formData, file, isDocsChecked, isPrivacyChecked]);
 
   return (
     <Container>
@@ -155,6 +165,8 @@ export default function Subscription() {
             <option>Men's Physique</option>
             <option>Classic Physique</option>
             <option>Bodybuilding</option>
+            <option>PCD</option>
+            <option>Não-Binárie</option>
           </FloatSelect>
 
           <FloatSelect
@@ -277,7 +289,14 @@ export default function Subscription() {
               <span>documentos </span>e o <span>laudo médico</span> para
               comprovação de transição
             </p>
-            <input type="checkbox" id="docs" name="docs" required />
+            <input
+              type="checkbox"
+              id="docs"
+              name="docs"
+              checked={isDocsChecked}
+              onChange={handleDocsChange}
+              required
+            />
             <span className="checkmark"></span>
           </Checkbox>
 
@@ -286,11 +305,20 @@ export default function Subscription() {
               Eu concordo com <span>termos de uso</span> e a{" "}
               <span>Política de Privacidade</span>
             </p>
-            <input type="checkbox" id="privacy" name="privacy" required />
+            <input
+              type="checkbox"
+              id="privacy"
+              name="privacy"
+              checked={isPrivacyChecked}
+              onChange={handlePrivacyChange}
+              required
+            />
             <span className="checkmark"></span>
           </Checkbox>
 
-          <Button onClick={handlePurchase}>Pagar • 99R$</Button>
+          <Button onClick={handlePurchase} disabled={cantPay}>
+            Pagar • 99R$
+          </Button>
         </div>
       </FormContainer>
 

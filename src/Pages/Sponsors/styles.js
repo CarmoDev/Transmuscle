@@ -54,6 +54,8 @@ export const Sponsor = styled.article`
   align-items: center;
   justify-content: space-evenly;
   gap: 14px;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 80px;
@@ -67,6 +69,10 @@ export const Sponsor = styled.article`
   #AzumaDojo {
     width: 140px;
     border-radius: 100%;
+  }
+
+  #MrRice {
+    width: 200px;
   }
 
   @media screen and (max-width: 768px) {

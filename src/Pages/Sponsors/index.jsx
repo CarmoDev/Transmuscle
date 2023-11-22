@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Container, Sponsor, SponsorsContainer } from "./styles";
+import { Container, Sponsor } from "./styles";
 import { Navigation } from "swiper/modules";
 import SponsorsData from "./utils/Sponsors";
 
@@ -10,18 +10,6 @@ export default function Sponsors() {
   return (
     <Container>
       <h1>Apoio e Patrocinadores</h1>
-
-      {/* {window.screen.width >= 1100 && (
-        <SponsorsContainer>
-          {SponsorsData.map((sponsor) => (
-            <Sponsor key={sponsor.name}>
-              <img src={sponsor.url} id={sponsor.id} alt={sponsor.name} />
-
-              <h2>{sponsor.name}</h2>
-            </Sponsor>
-          ))}
-        </SponsorsContainer>
-      )} */}
 
       <Swiper
         autoHeight={true}
