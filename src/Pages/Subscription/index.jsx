@@ -35,6 +35,7 @@ export default function Subscription() {
   const [file, setFile] = useState(null);
   const [cantPay, setCantPay] = useState(false);
   const [isCouponVisible, setCouponVisible] = useState(false);
+  const [valores, setValores] = useState(0);
   const [amount, setAmount] = useState(valores);
 
   const fileTypes = ["PDF"];
@@ -90,8 +91,6 @@ export default function Subscription() {
   //   setCantPay(true);
   // }, [formData, file, isDocsChecked, isPrivacyChecked]);
 
-  const [valores, setValores] = useState(null);
-
   useEffect(() => {
     async function fetchValores() {
       try {
@@ -104,6 +103,11 @@ export default function Subscription() {
 
     fetchValores();
   }, []);
+
+  useEffect(() => {
+    setAmount(valores);
+  }, [valores]);
+
   return (
     <Container>
       <ModalOng open={modalOngVisible} onClose={closeModalOng} />
