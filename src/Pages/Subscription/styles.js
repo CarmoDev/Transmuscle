@@ -92,6 +92,8 @@ export const Checkbox = styled.label`
   align-items: flex-start;
   margin-top: 24px;
   position: relative;
+  transition: all 0.2s;
+  cursor: pointer;
 
   & + & {
     margin-top: 12px;
