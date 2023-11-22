@@ -10,7 +10,7 @@ import { FloatInput, FloatSelect } from "../../Components/FloatInput";
 import ModalOng from "./Components/ModalOng";
 import ModalCoupon from "./Components/ModalCoupon";
 import Checkout from "../../Components/PaymentBrick";
-import { addAtleta } from "../../service/useAtletas";
+import { addAtleta, getValores } from "../../service/useAtletas";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ export default function Subscription() {
   const [file, setFile] = useState(null);
   const [cantPay, setCantPay] = useState(false);
   const [isCouponVisible, setCouponVisible] = useState(false);
-  const [amount, setAmount] = useState(99);
+  const [amount, setAmount] = useState(valores);
 
   const fileTypes = ["PDF"];
 
@@ -90,6 +90,20 @@ export default function Subscription() {
   //   setCantPay(true);
   // }, [formData, file, isDocsChecked, isPrivacyChecked]);
 
+  const [valores, setValores] = useState(null);
+
+  useEffect(() => {
+    async function fetchValores() {
+      try {
+        const valoresData = await getValores();
+        setValores(valoresData?.padrao);
+      } catch (error) {
+        console.error('Erro ao obter valores:', error);
+      }
+    }
+
+    fetchValores();
+  }, []);
   return (
     <Container>
       <ModalOng open={modalOngVisible} onClose={closeModalOng} />
@@ -304,7 +318,7 @@ export default function Subscription() {
           </Checkbox>
 
           <Button onClick={() => setCouponVisible(true)} disabled={cantPay}>
-            Pagar • 99R$
+            Pagar • {valores}R$
           </Button>
         </div>
       </FormContainer>

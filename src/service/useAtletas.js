@@ -33,3 +33,15 @@ export async function addAtleta(data, file) {
       throw error;
     }
   }
+
+  export async function getValores() {
+    try {
+      const valoresRef = database.ref("Valores");
+      const snapshot = await valoresRef.once("value");
+      const valores = snapshot.val();
+  
+      return valores;
+    } catch (error) {
+      throw new Error("Erro ao obter dados dos valores: " + error.message);
+    }
+  }
