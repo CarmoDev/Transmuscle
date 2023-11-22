@@ -5,7 +5,7 @@ export const Container = styled.main`
   align-items: center;
   justify-content: center;
   gap: 64px;
-  height: 100dvh;
+  min-height: 100dvh;
 `;
 
 export const Input = styled.input`
