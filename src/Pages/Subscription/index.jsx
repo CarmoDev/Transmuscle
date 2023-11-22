@@ -10,6 +10,7 @@ import { FloatInput, FloatSelect } from "../../Components/FloatInput";
 import ModalOng from "./Components/ModalOng";
 import ModalCoupon from "./Components/ModalCoupon";
 import Checkout from "../../Components/PaymentBrick";
+import { addAtleta } from "../../service/useAtletas";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -69,6 +70,7 @@ export default function Subscription() {
   const handlePurchase = async (cupom) => {
     if (cupom?.includes("A9")) {
       setAmount(0);
+      addAtleta(formData, file);
       return setCouponVisible(false);
     } else {
       setModalVisible(true);
