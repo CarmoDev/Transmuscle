@@ -28,6 +28,8 @@ export const Container = styled.section`
   }
 
   .swiper-slide {
+    width: 30%;
+
     display: flex;
     align-items: center;
     justify-content: center;
