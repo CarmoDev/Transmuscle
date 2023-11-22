@@ -35,7 +35,6 @@ export default function Subscription() {
   const [file, setFile] = useState(null);
   const [cantPay, setCantPay] = useState(false);
   const [isCouponVisible, setCouponVisible] = useState(false);
-  const [amount, setAmount] = useState(valores);
 
   const fileTypes = ["PDF"];
 
@@ -68,6 +67,25 @@ export default function Subscription() {
     setModalVisible(true);
   };
 
+  const [valores, setValores] = useState(null);
+
+  useEffect(() => {
+    async function fetchValores() {
+      try {
+        const valoresData = await getValores();
+        setValores(valoresData?.padrao);
+      } catch (error) {
+        console.error('Erro ao obter valores:', error);
+      }
+    }
+
+    fetchValores();
+  }, []);
+  
+
+  const [amount, setAmount] = useState(valores);
+
+
   const handlePurchase = async (cupom) => {
     if (cupom?.includes("A9")) {
       setAmount(0);
@@ -90,20 +108,7 @@ export default function Subscription() {
   //   setCantPay(true);
   // }, [formData, file, isDocsChecked, isPrivacyChecked]);
 
-  const [valores, setValores] = useState(null);
-
-  useEffect(() => {
-    async function fetchValores() {
-      try {
-        const valoresData = await getValores();
-        setValores(valoresData?.padrao);
-      } catch (error) {
-        console.error('Erro ao obter valores:', error);
-      }
-    }
-
-    fetchValores();
-  }, []);
+ 
   return (
     <Container>
       <ModalOng open={modalOngVisible} onClose={closeModalOng} />
