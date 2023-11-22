@@ -174,8 +174,18 @@ export const Button = styled.button`
   margin: 10px;
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.2s;
 
   &:hover {
-    background-color: #996600;
+    background-color: #d1a73e;
+  }
+
+  &:active {
+    background-color: #a77127;
+  }
+
+  &[disabled] {
+    background-color: #ccc;
+    cursor: default;
   }
 `;
