@@ -10,6 +10,7 @@ import Logo from "./Assets/banner.jpg";
 import { FloatInput, FloatSelect } from "../../Components/FloatInput";
 import ModalOng from "./Components/ModalOng";
 import Checkout from "../../Components/PaymentBrick";
+import { addAtleta } from "../../service/useAtletas";
 
 export default function Subscription() {
   const [formData, setFormData] = useState({
@@ -85,7 +86,10 @@ export default function Subscription() {
     setModalOngVisible(false);
   };
 
+  //função de salvar o atleta abaixo
+  // tabela com valor para fazer dinamico
   const handlePurchase = async () => {
+    addAtleta(formData, file);
     setModalVisible(true);
   };
 
