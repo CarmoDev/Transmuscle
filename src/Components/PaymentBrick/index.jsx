@@ -13,11 +13,9 @@ export default function Checkout({ amount, athleteForm }) {
 
   const customization = {
     paymentMethods: {
-      ticket: "all",
       bankTransfer: "all",
       creditCard: "all",
       debitCard: "all",
-      mercadoPago: "all",
     },
   };
 
