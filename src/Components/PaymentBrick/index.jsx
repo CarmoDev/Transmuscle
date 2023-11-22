@@ -8,7 +8,7 @@ export default function Checkout({ amount, athleteForm }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const initialization = {
-    amount: amount,
+    amount: 2,
   };
 
   const customization = {
@@ -39,12 +39,10 @@ export default function Checkout({ amount, athleteForm }) {
       })
         .then((response) => response.json())
         .then((response) => {
-          console.log("aq", response);
-
           resolve();
 
           if (response && selectedPaymentMethod !== "credit_card") {
-            openNewTab(response.qrcodeURL);
+            openNewTab(response);
           }
         })
         .catch((error) => {
