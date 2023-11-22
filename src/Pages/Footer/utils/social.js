@@ -1,12 +1,12 @@
 export default [
   {
     name: "@Transmusclebr",
-    url: "https://twitter.com",
-    icon: require("../assets/Twitter.svg"),
+    url: "https://TikTok.com",
+    icon: require("../assets/tiktok.svg"),
   },
   {
-    name: "marketing@transmuscle.com.br",
-    url: "mailto:marketing@transmuscle.com.br",
+    name: "comercial@transmuscle.com.br",
+    url: "mailto:comercial@transmuscle.com.br",
     icon: require("../assets/email.svg"),
   },
   {

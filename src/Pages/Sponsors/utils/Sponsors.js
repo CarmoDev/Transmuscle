@@ -25,7 +25,7 @@ export default [
     id: "VozDaDiversidade",
   },
   {
-    name: "Mr. Rice",
+    name: "",
     url: require("../logos/MrRice.png"),
     id: "MrRice",
   },
