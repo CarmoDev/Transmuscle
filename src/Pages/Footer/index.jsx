@@ -14,15 +14,6 @@ export default function Footer() {
             <h2>TRANSMUSCLE®</h2>
           </Mark>
 
-          <Politics>
-            <h3>©2023 - TRANSMUSCLE ALL RIGHTS RESERVED</h3>
-
-            <span>
-              <a>Politica de Reembolso</a> - <a>Politica de Privaciade</a> -{" "}
-              <a>Termos de Uso</a>
-            </span>
-          </Politics>
-
           <Social>
             {socialData.map((socialMedia) => (
               <a
@@ -58,15 +49,6 @@ export default function Footer() {
               ))}
             </Social>
           </div>
-
-          <Politics>
-            <h3>©2023 - TRANSMUSCLE ALL RIGHTS RESERVED</h3>
-
-            <span>
-              <a>Politica de Reembolso</a> - <a>Politica de Privaciade</a> -{" "}
-              <a>Termos de Uso</a>
-            </span>
-          </Politics>
         </>
       )}
     </Container>
