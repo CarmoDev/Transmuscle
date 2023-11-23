@@ -4,7 +4,7 @@ import Logo from "../../assets/images/GoldenLogoFull.png";
 
 export default function Home() {
   return (
-    <Container>
+    <Container id="quemSomos">
       <img src={Logo} alt="Logo transmuscle" />
 
       <DescriptionContainer>

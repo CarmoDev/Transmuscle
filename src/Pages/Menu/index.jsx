@@ -9,6 +9,8 @@ import {
   Sections,
 } from "./styles";
 
+import { Link as LinkScroll } from "react-scroll";
+
 import Logo from "../../assets/images/GoldenM.png";
 
 export default function Menu() {
@@ -38,17 +40,27 @@ export default function Menu() {
 
           <Sections>
             <OptionsList className={menuOpen}>
-              <Link to="">
+              <LinkScroll
+                smooth={true}
+                duration={500}
+                offset={100}
+                to="quemSomos"
+              >
                 <p>Quem Somos</p>
-              </Link>
+              </LinkScroll>
 
-              <Link to="">
+              <LinkScroll
+                smooth={true}
+                duration={500}
+                offset={100}
+                to="categorias"
+              >
                 <p>Categorias</p>
-              </Link>
+              </LinkScroll>
 
-              <Link to="">
+              <LinkScroll smooth={true} duration={500} offset={100} to="">
                 <p>Galeria do Evento</p>
-              </Link>
+              </LinkScroll>
 
               <Link to="/inscricao">
                 <p>Inscreva-se</p>
@@ -63,13 +75,23 @@ export default function Menu() {
           </div>
 
           <Options>
-            <Link to="">
+            <LinkScroll
+              to="quemSomos"
+              smooth={true}
+              duration={500}
+              offset={100}
+            >
               <p>Quem Somos</p>
-            </Link>
+            </LinkScroll>
 
-            <Link to="">
+            <LinkScroll
+              to="categorias"
+              smooth={true}
+              duration={500}
+              offset={-20}
+            >
               <p>Categorias</p>
-            </Link>
+            </LinkScroll>
 
             <Link to="">
               <p>Galeria do Evento</p>

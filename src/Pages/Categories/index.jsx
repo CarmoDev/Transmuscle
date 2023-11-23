@@ -13,7 +13,7 @@ export default function Categories() {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container id="categorias">
       <h1>Categorias</h1>
 
       {window.screen.width >= 1100 && (
