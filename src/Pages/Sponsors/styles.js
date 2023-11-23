@@ -47,9 +47,11 @@ export const SponsorsContainer = styled.div`
   justify-content: space-evenly;
 `;
 
-export const Sponsor = styled.article`
+export const Sponsor = styled.a`
   width: 280px;
   height: 200px;
+  cursor: pointer;
+  text-decoration: none;
 
   display: flex;
   flex-direction: column;
@@ -75,6 +77,10 @@ export const Sponsor = styled.article`
 
   #MrRice {
     width: 200px;
+  }
+
+  #vidaativa {
+    border-radius: 50%;
   }
 
   @media screen and (max-width: 768px) {

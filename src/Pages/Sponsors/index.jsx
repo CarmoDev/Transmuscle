@@ -26,7 +26,11 @@ export default function Sponsors() {
       >
         {SponsorsData.map((sponsor) => (
           <SwiperSlide key={sponsor.name}>
-            <Sponsor>
+            <Sponsor
+              href={`https://www.instagram.com/${sponsor.insta}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={sponsor.url} id={sponsor.id} alt={sponsor.name} />
 
               <h2>{sponsor.name}</h2>
