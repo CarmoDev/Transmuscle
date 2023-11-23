@@ -37,6 +37,7 @@ export default function Subscription() {
   const [isCouponVisible, setCouponVisible] = useState(false);
   const [valores, setValores] = useState(0);
   const [amount, setAmount] = useState(valores);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fileTypes = ["PDF"];
 
@@ -105,7 +106,10 @@ export default function Subscription() {
   }, []);
 
   useEffect(() => {
-    setAmount(valores);
+    if (valores !== 0) {
+      setAmount(valores);
+      setIsLoading(false);
+    }
   }, [valores]);
 
   return (
@@ -322,7 +326,7 @@ export default function Subscription() {
           </Checkbox>
 
           <Button onClick={() => setCouponVisible(true)} disabled={cantPay}>
-            Pagar • {valores}R$
+            {isLoading ? "Carregando..." : `Pagar • ${valores}R$`}
           </Button>
         </div>
       </FormContainer>
@@ -332,7 +336,9 @@ export default function Subscription() {
         onClose={closeModalCoupon}
         onConfirm={handlePurchase}
       />
-      {modalVisible && <Checkout amount={amount} athleteForm={formData} />}
+      {modalVisible && (
+        <Checkout amount={amount} athleteForm={formData} file={file} />
+      )}
     </Container>
   );
 }

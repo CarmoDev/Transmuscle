@@ -22,6 +22,13 @@ export default function ConfirmPayment() {
         respondendo aquele e-mail com sua dúvida.
       </h4>
 
+      <p>
+        Para dúvidas:{" "}
+        <a href="mailto:Atletas@transmuscle.com.br">
+          Atletas@transmuscle.com.br
+        </a>
+      </p>
+
       <PayButton onClick={() => navigate("/")}>Voltar ao Inicio</PayButton>
     </Container>
   );

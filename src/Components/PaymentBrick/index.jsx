@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Overlay } from "./styles";
-initMercadoPago("APP_USR-bb99ea4d-1c64-49cf-84c2-da66be59de6e");
+import { addAtleta } from "../../service/useAtletas";
+initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
 
-export default function Checkout({ amount, athleteForm }) {
+export default function Checkout({ amount, athleteForm, file }) {
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const initialization = {
-    amount: 2,
+    amount: amount,
   };
 
   const customization = {
@@ -39,6 +42,11 @@ export default function Checkout({ amount, athleteForm }) {
       })
         .then((response) => response.json())
         .then((response) => {
+          if (response.status === "approved") {
+            addAtleta(athleteForm, file);
+            window.paymentBrickController.unmount();
+            navigate("/confirmed");
+          }
           resolve();
 
           if (response && selectedPaymentMethod !== "credit_card") {

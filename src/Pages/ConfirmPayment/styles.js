@@ -19,4 +19,13 @@ export const Container = styled.div`
       color: #cc9933;
     }
   }
+
+  p {
+    font-weight: bold;
+  }
+
+  a {
+    color: #cc9933;
+    font-weight: bold;
+  }
 `;
