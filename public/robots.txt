@@ -1,3 +1,4 @@
-Allow: /index.html
+User-agent: *
+Allow: /
 Index: yes
 Allow: *

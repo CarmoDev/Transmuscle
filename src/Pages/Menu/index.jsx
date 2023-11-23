@@ -58,9 +58,9 @@ export default function Menu() {
                 <p>Categorias</p>
               </LinkScroll>
 
-              <LinkScroll smooth={true} duration={500} offset={100} to="">
-                <p>Galeria do Evento</p>
-              </LinkScroll>
+              <a href="https://mont.ink/trans-muscle-" target="_parent">
+                <p>Loja Oficial</p>
+              </a>
 
               <Link to="/inscricao">
                 <p>Inscreva-se</p>
@@ -93,7 +93,11 @@ export default function Menu() {
               <p>Categorias</p>
             </LinkScroll>
 
-            <a href="https://mont.ink/trans-muscle-" target="_parent">
+            <a
+              href="https://mont.ink/trans-muscle-"
+              target="_blank"
+              rel="noreferrer"
+            >
               <p>Loja Oficial</p>
             </a>
           </Options>
