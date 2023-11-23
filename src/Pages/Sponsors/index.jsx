@@ -30,8 +30,13 @@ export default function Sponsors() {
               href={`https://www.instagram.com/${sponsor.insta}`}
               target="_blank"
               rel="noreferrer"
+              aria-label={`Redirecionamento para ${sponsor.insta}`}
             >
-              <img src={sponsor.url} id={sponsor.id} alt={sponsor.name} />
+              <img
+                src={sponsor.url}
+                id={sponsor.id}
+                alt={`logo ${sponsor.name}`}
+              />
 
               <h2>{sponsor.name}</h2>
             </Sponsor>
