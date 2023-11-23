@@ -33,7 +33,7 @@ export default function Subscription() {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalOngVisible, setModalOngVisible] = useState(true);
   const [file, setFile] = useState(null);
-  const [cantPay, setCantPay] = useState(false);
+  const [cantPay, setCantPay] = useState(true);
   const [isCouponVisible, setCouponVisible] = useState(false);
   const [valores, setValores] = useState(0);
   const [amount, setAmount] = useState(valores);
@@ -82,15 +82,15 @@ export default function Subscription() {
     return setCouponVisible(false);
   };
 
-  // useEffect(() => {
-  //   const allFilled = Object.keys(formData).length >= 16;
+  useEffect(() => {
+    const allFilled = Object.keys(formData).length >= 16;
 
-  //   if (allFilled && file && isDocsChecked && isPrivacyChecked) {
-  //     return setCantPay(false);
-  //   }
+    if (allFilled && file && isDocsChecked && isPrivacyChecked) {
+      return setCantPay(false);
+    }
 
-  //   setCantPay(true);
-  // }, [formData, file, isDocsChecked, isPrivacyChecked]);
+    setCantPay(true);
+  }, [formData, file, isDocsChecked, isPrivacyChecked]);
 
   useEffect(() => {
     async function fetchValores() {
