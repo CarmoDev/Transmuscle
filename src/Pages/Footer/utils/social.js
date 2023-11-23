@@ -1,7 +1,7 @@
 export default [
   {
     name: "@Transmusclebr",
-    url: "https://TikTok.com",
+    url: "https://www.tiktok.com/@transmusclebr",
     icon: require("../assets/tiktok.svg"),
   },
   {
@@ -10,8 +10,8 @@ export default [
     icon: require("../assets/email.svg"),
   },
   {
-    name: "@Transmusclebr",
-    url: "https://instagram.com",
+    name: "@transmusclebr",
+    url: "https://www.instagram.com/transmusclebr/",
     icon: require("../assets/instagram.svg"),
   },
 ];

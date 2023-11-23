@@ -25,7 +25,12 @@ export default function Footer() {
 
           <Social>
             {socialData.map((socialMedia) => (
-              <a href={socialMedia.url} key={socialMedia.url}>
+              <a
+                href={socialMedia.url}
+                key={socialMedia.url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={socialMedia.icon} />
 
                 <p>{socialMedia.name}</p>
@@ -40,7 +45,12 @@ export default function Footer() {
           <div>
             <Social>
               {socialData.map((socialMedia) => (
-                <a href={socialMedia.url} key={socialMedia.url}>
+                <a
+                  href={socialMedia.url}
+                  key={socialMedia.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img src={socialMedia.icon} />
 
                   <p>{socialMedia.name}</p>
