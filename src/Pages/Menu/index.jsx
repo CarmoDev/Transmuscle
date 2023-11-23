@@ -28,7 +28,7 @@ export default function Menu() {
         <HamburguerContainer>
           <header>
             <div>
-              <img src={Logo} />
+              <img src={Logo} alt="Transmuscle Logo" />
             </div>
 
             <HamburguerMenu

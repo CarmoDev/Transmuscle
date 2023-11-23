@@ -51,7 +51,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src={socialMedia.icon} />
+                  <img src={socialMedia.icon} alt={socialMedia.name} />
 
                   <p>{socialMedia.name}</p>
                 </a>
