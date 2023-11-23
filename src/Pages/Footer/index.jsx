@@ -22,7 +22,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={socialMedia.icon} />
+                <img src={socialMedia.icon} alt={socialMedia.label} />
 
                 <p>{socialMedia.name}</p>
               </a>
@@ -42,7 +42,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src={socialMedia.icon} alt={socialMedia.name} />
+                  <img src={socialMedia.icon} alt={socialMedia.label} />
 
                   <p>{socialMedia.name}</p>
                 </a>

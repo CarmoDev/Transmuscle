@@ -5,7 +5,7 @@ export default function Achivements() {
   return (
     <Container>
       <h1>Conquistas</h1>
-      <h3>2023</h3>
+      <h2>2023</h2>
       <Achieves />
     </Container>
   );

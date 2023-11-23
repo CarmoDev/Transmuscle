@@ -12,7 +12,7 @@ export const Container = styled.section`
     margin-bottom: 48px;
   }
 
-  h3 {
+  h2 {
     color: #fafafa;
     margin-bottom: 20px;
   }

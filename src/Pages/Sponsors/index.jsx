@@ -32,11 +32,7 @@ export default function Sponsors() {
               rel="noreferrer"
               aria-label={`Redirecionamento para ${sponsor.insta}`}
             >
-              <img
-                src={sponsor.url}
-                id={sponsor.id}
-                alt={`logo ${sponsor.name}`}
-              />
+              <img src={sponsor.url} id={sponsor.id} alt={`${sponsor.label}`} />
 
               <h2>{sponsor.name}</h2>
             </Sponsor>
