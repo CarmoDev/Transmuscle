@@ -1,24 +1,52 @@
+import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import { Container, DescriptionContainer } from "./styles";
 
 import Logo from "../../assets/images/GoldenLogoFull.png";
 
+import "swiper/css";
+
+import { Autoplay } from "swiper/modules";
+import desc from "./utils/desc";
+
 export default function Home() {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty("--progress", 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
+
   return (
     <Container id="quemSomos">
       <img src={Logo} alt="Logo transmuscle" />
 
-      <DescriptionContainer>
-        <h1>Quem Somos</h1>
-        <p>
-          Somos o primeiro e único campeonato de fisiculturismo voltado
-          exclusivamente para o público transgênero e Não-Binárie no Brasil. Ele
-          busca promover a inclusão, a igualdade de oportunidades e a celebração
-          da diversidade de corpos dentro da comunidade trans. Além disso, o
-          evento tem como objetivo contribuir para a conscientização, aceitação
-          e empoderamento das pessoas transgênero e Não-Binárie, utilizando o
-          esporte como uma plataforma de destaque para suas habilidades físicas.
-        </p>
-      </DescriptionContainer>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        onAutoplayTimeLeft={onAutoplayTimeLeft}
+      >
+        {desc.map((project) => (
+          <SwiperSlide key={project.title}>
+            <DescriptionContainer>
+              <h1>{project.title}</h1>
+              <p>{project.description}</p>
+            </DescriptionContainer>
+          </SwiperSlide>
+        ))}
+        <div className="autoplay-progress" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}>
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span ref={progressContent}></span>
+        </div>
+      </Swiper>
     </Container>
   );
 }
