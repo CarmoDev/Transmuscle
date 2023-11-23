@@ -55,7 +55,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
       };
 
       await axios
-        .post("http://localhost:3000/payment", paymentData)
+        .post("https://sore-bikini-bee.cyclic.app/payment", paymentData)
         .then(() => console.log("Sucesso on payment"))
         .catch((err) => console.log("Error to pay:", err));
     } catch (error) {
@@ -78,7 +78,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/boleto",
+        "https://sore-bikini-bee.cyclic.app/boleto",
         paymentData
       );
 
@@ -104,7 +104,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/pix",
+        "https://sore-bikini-bee.cyclic.app/pix",
         paymentData
       );
 

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Overlay } from "./styles";
 import { addAtleta } from "../../service/useAtletas";
-initMercadoPago("TEST-1f533cd7-7d92-402c-ada6-4a4f61ea4866");
+initMercadoPago("APP_USR-39bcf608-05ef-4ed5-80b0-9f0bac5e0462");
 
 export default function Checkout({ amount, athleteForm, file }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,7 @@ export default function Checkout({ amount, athleteForm, file }) {
         ? "process_payment"
         : "v1/payments";
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3000/${route}`, {
+      fetch(`https://sore-bikini-bee.cyclic.app/${route}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -81,7 +81,7 @@ export default function Subscription() {
     if (cupom?.includes("A9")) {
       setAmount(0);
       addAtleta(formData, file);
-      fetch("http://localhost:3000/coupon", {
+      fetch("https://sore-bikini-bee.cyclic.app/coupon", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

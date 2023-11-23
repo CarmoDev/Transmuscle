@@ -40,7 +40,7 @@ const ModalOng = ({ open, onClose }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/upload",
+        "https://sore-bikini-bee.cyclic.app/upload",
         formData
       );
 
