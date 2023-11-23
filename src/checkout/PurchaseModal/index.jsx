@@ -55,7 +55,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
       };
 
       await axios
-        .post("https://bronze-nightingale-gear.cyclic.app/payment", paymentData)
+        .post("http://localhost:3000/payment", paymentData)
         .then(() => console.log("Sucesso on payment"))
         .catch((err) => console.log("Error to pay:", err));
     } catch (error) {
@@ -78,7 +78,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
       };
 
       const response = await axios.post(
-        "https://bronze-nightingale-gear.cyclic.app/boleto",
+        "http://localhost:3000/boleto",
         paymentData
       );
 
@@ -104,7 +104,7 @@ const PurchaseModal = ({ open, onClose, formData }) => {
       };
 
       const response = await axios.post(
-        "https://bronze-nightingale-gear.cyclic.app/pix",
+        "http://localhost:3000/pix",
         paymentData
       );
 

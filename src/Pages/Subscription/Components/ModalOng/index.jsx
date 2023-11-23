@@ -6,7 +6,7 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-import { Footer, Header, PayButton } from "./styles";
+import { Content, Footer, Header, PayButton } from "./styles";
 import { useState } from "react";
 import axios from "axios";
 
@@ -40,7 +40,7 @@ const ModalOng = ({ open, onClose }) => {
 
     try {
       const response = await axios.post(
-        "https://bronze-nightingale-gear.cyclic.app/upload",
+        "http://localhost:3000/upload",
         formData
       );
 
@@ -69,32 +69,25 @@ const ModalOng = ({ open, onClose }) => {
             </h4>
           </Header>
 
-          <DialogContent
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            <input
-              style={{ width: "45%" }}
-              placeholder="Nome"
-              type="text"
-              onChange={(event) => setName(event.target.value)}
-            />
-            <input
-              style={{ width: "45%" }}
-              type="email"
-              placeholder="Email"
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
-              type="file"
-              accept=".pdf, .docx"
-              onChange={handleFileChange}
-            />
+          <DialogContent>
+            <Content>
+              <input
+                placeholder="Nome"
+                type="text"
+                onChange={(event) => setName(event.target.value)}
+              />
+
+              <input
+                type="email"
+                placeholder="Email"
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <input
+                type="file"
+                accept=".pdf, .docx"
+                onChange={handleFileChange}
+              />
+            </Content>
             <br />
             <small>Apenas PDF, DOCX, Doc</small>
           </DialogContent>

@@ -93,9 +93,9 @@ export default function Menu() {
               <p>Categorias</p>
             </LinkScroll>
 
-            <Link to="">
-              <p>Galeria do Evento</p>
-            </Link>
+            <a href="https://mont.ink/trans-muscle-" target="_parent">
+              <p>Loja Oficial</p>
+            </a>
           </Options>
 
           <Link to="/inscricao">

@@ -6,7 +6,7 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-import { Footer, Header, PayButton } from "./styles";
+import { Content, Footer, Header, PayButton } from "./styles";
 import { useState } from "react";
 
 const ModalCoupon = ({ open, onClose, onConfirm }) => {
@@ -35,14 +35,14 @@ const ModalCoupon = ({ open, onClose, onConfirm }) => {
             gap: 8,
           }}
         >
-          <input
-            type="text"
-            placeholder={"Cupom"}
-            value={cupon}
-            onChange={handleFileChange}
-          />
-          <br />
-          <small>Apenas PDF, DOCX, Doc</small>
+          <Content>
+            <input
+              type="text"
+              placeholder={"Cupom"}
+              value={cupon}
+              onChange={handleFileChange}
+            />
+          </Content>
         </DialogContent>
       </>
 

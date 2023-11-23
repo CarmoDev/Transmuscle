@@ -33,7 +33,7 @@ export default function Checkout({ amount, athleteForm, file }) {
         ? "process_payment"
         : "v1/payments";
     return new Promise((resolve, reject) => {
-      fetch(`https://bronze-nightingale-gear.cyclic.app/${route}`, {
+      fetch(`http://localhost:3000/${route}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

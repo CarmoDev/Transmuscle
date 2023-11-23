@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Container, Button, FormContainer, Poster, Checkbox } from "./styles";
 import { FileUploader } from "react-drag-drop-files";
@@ -70,11 +71,25 @@ export default function Subscription() {
     setModalVisible(true);
   };
 
+  const navigate = useNavigate();
   const handlePurchase = async (cupom) => {
+    const body = {
+      name: formData.name,
+      email: formData.email,
+    };
+
     if (cupom?.includes("A9")) {
       setAmount(0);
       addAtleta(formData, file);
-      return setCouponVisible(false);
+      fetch("http://localhost:3000/coupon", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      setCouponVisible(false);
+      return navigate("/confirmed");
     } else {
       setModalVisible(true);
     }
