@@ -1,4 +1,4 @@
-import { Container, Mark, Politics, Social } from "./styles";
+import { Container, Mark, Social } from "./styles";
 import Logo from "../../assets/images/GoldenLogoFull.png";
 
 import socialData from "./utils/social";

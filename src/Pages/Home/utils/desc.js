@@ -31,4 +31,24 @@ export default [
     Melhorar a saúde e o bem-estar das pessoas transgênero, fornecendo suporte físico e
     emocional durante sua jornada de transformação.`,
   },
+  {
+    title: "Sobre o Evento",
+    description: `Todos os competidores devem ser maiores
+    de 18 anos. Os atletas serão avaliados com base
+    em critérios tradicionais de fisiculturismo,
+    como tamanho, definição muscular, simetria,
+    proporção e apresentação geral. A competição
+    será conduzida de forma justa, imparcial e
+    respeitosa, garantindo um ambiente seguro
+    para todos os participantes. Os juízes serão
+    especialistas em fisiculturismo, incluindo
+    profissionais transgêneros para garantir uma
+    perspectiva inclusiva na avaliação. Serão
+    aplicadas políticas antidiscriminação e de
+    respeito à identidade de gênero dos
+    competidores. O evento contará com medidas
+    de acessibilidade para garantir a participação
+    igualitária de todos os atletas.
+    `,
+  },
 ];
