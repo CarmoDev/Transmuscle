@@ -6,15 +6,14 @@ export const Container = styled.main`
   justify-content: center;
   gap: 64px;
   height: 99dvh;
-  overflow-x: hidden;
 
   img {
     width: 40%;
   }
 
   .swiper {
+    height: 43%;
     width: 40%;
-    height: 30%;
   }
 
   .autoplay-progress {

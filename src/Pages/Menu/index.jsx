@@ -62,6 +62,10 @@ export default function Menu() {
                 <p>Loja Oficial</p>
               </a>
 
+              <LinkScroll to="faq" smooth={true} duration={500} offset={-20}>
+                <p>Fale Conosco</p>
+              </LinkScroll>
+
               <Link to="/inscricao">
                 <p>Inscreva-se</p>
               </Link>
@@ -100,6 +104,10 @@ export default function Menu() {
             >
               <p>Loja Oficial</p>
             </a>
+
+            <LinkScroll to="faq" smooth={true} duration={500} offset={-20}>
+              <p>Fale Conosco</p>
+            </LinkScroll>
           </Options>
 
           <Link to="/inscricao">

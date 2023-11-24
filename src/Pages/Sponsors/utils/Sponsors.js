@@ -55,4 +55,11 @@ export default [
     id: "vidaativa",
     label: "logo vidaativa",
   },
+  {
+    name: "Liga Trans",
+    url: require("../logos/ligaTrans.png"),
+    insta: "liganacionaldefutebol_linfat",
+    id: "ligaTrans",
+    label: "logo Liga Trans",
+  },
 ];

@@ -14,6 +14,8 @@ export default function Footer() {
             <h2>TRANSMUSCLE®</h2>
           </Mark>
 
+          <p>TODOS DIRETOS RESERVADOS TRANSMUSCLE®</p>
+
           <Social>
             {socialData.map((socialMedia) => (
               <a
@@ -49,6 +51,7 @@ export default function Footer() {
               ))}
             </Social>
           </div>
+          <p>TODOS DIRETOS RESERVADOS TRANSMUSCLE®</p>
         </>
       )}
     </Container>

@@ -7,9 +7,16 @@ export const Container = styled.footer`
   flex-shrink: 0;
   background-color: #000c1c;
   padding: 64px 0 24px 0;
+  p {
+    align-self: flex-end;
+  }
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+
+    p {
+      align-self: center;
+    }
   }
 
   div {

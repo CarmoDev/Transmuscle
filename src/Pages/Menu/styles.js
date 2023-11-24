@@ -11,6 +11,10 @@ export const Container = styled.nav`
   width: 100%;
   background-color: #00132b;
 
+  p {
+    cursor: pointer;
+  }
+
   div {
     img {
       width: 80px;
@@ -150,7 +154,7 @@ export const OptionsList = styled.div`
   &.ativo {
     font-size: 12px;
     opacity: 1;
-    height: 30%;
+    height: 43%;
     width: 95%;
     padding-top: 15%;
 
