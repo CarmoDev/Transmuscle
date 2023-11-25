@@ -20,7 +20,7 @@ export default function Sponsors() {
           maxWidth: "90%",
         }}
         loop={true}
-        initialSlide={3}
+        initialSlide={4}
         navigation
         modules={[Navigation]}
       >

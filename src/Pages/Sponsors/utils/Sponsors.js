@@ -21,11 +21,25 @@ export default [
     label: "Transguys",
   },
   {
+    name: "Softview Tech",
+    url: require("../logos/Softview.png"),
+    insta: "softviewtech",
+    id: "softviewtech",
+    label: "Softview Tech",
+  },
+  {
     name: "Azuma Dojo",
     url: require("../logos/azuma.jpg"),
     insta: "azuma.dojo",
     id: "AzumaDojo",
     label: "Azuma Dojo",
+  },
+  {
+    name: "BeDifferent Clinic",
+    url: require("../logos/BeDifferent.png"),
+    insta: "clinicdifferent",
+    id: "BeDifferent",
+    label: "logo BeDifferent",
   },
   {
     name: "Voz Da Diversidade",
