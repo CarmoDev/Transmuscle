@@ -58,6 +58,7 @@ export const FormContainer = styled.div`
   .laudo {
     height: 200px;
     border-radius: 8px;
+
     border: 1px dashed #fff;
     display: flex;
     flex-direction: column;
@@ -71,6 +72,10 @@ export const FormContainer = styled.div`
       font-size: 20px;
       text-align: center;
       font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+
+      text-overflow: ellipsis;
     }
 
     span {
