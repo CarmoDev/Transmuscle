@@ -303,8 +303,7 @@ export default function Subscription() {
             </div>
           </FileUploader>
           <small>
-            Esse campeonato é exclusivo para trans e não binários por esse
-            motivos solicitamos laudo médico
+            Esse campeonato é exclusivo para trans e não binários, caso tenha realizado qualquer cirurgia, favor anexar o comprovante
           </small>
 
           <Checkbox>
@@ -312,7 +311,7 @@ export default function Subscription() {
               {" "}
               Entendo que no dia da pesagem devo levar meus{" "}
               <span>documentos </span>e o <span>laudo médico</span> para
-              comprovação de mastectomia
+              comprovação de intervenção círurgica relacionadas a identidade de gênero
             </p>
             <input
               type="checkbox"
