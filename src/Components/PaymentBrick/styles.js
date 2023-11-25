@@ -41,7 +41,8 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   width: 100dvw;
-  height: 100dvh;
+  height: 100%;
+  top: 0;
   z-index: 5000;
   overflow-y: scroll;
 
