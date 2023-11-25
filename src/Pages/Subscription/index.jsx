@@ -282,7 +282,7 @@ export default function Subscription() {
         </div>
 
         <div className="footer">
-          <h3>Laudo Médico *</h3>
+          <h3>Laudo Médico</h3>
           <FileUploader
             hover={"Solte o laudo médico aqui"}
             handleChange={handleChange}
