@@ -35,7 +35,7 @@ export default [
     label: "Azuma Dojo",
   },
   {
-    name: "BeDifferent Clinic",
+    name: "Different Clinic",
     url: require("../logos/BeDifferent.png"),
     insta: "clinicdifferent",
     id: "BeDifferent",
