@@ -101,12 +101,12 @@ export default function Subscription() {
   useEffect(() => {
     const allFilled = Object.keys(formData).length >= 16;
 
-    if (allFilled && file && isDocsChecked && isPrivacyChecked) {
+    if (allFilled && isDocsChecked && isPrivacyChecked) {
       return setCantPay(false);
     }
 
     setCantPay(true);
-  }, [formData, file, isDocsChecked, isPrivacyChecked]);
+  }, [formData, isDocsChecked, isPrivacyChecked]);
 
   useEffect(() => {
     async function fetchValores() {
@@ -312,7 +312,7 @@ export default function Subscription() {
               {" "}
               Entendo que no dia da pesagem devo levar meus{" "}
               <span>documentos </span>e o <span>laudo médico</span> para
-              comprovação de transição
+              comprovação de mastectomia
             </p>
             <input
               type="checkbox"
