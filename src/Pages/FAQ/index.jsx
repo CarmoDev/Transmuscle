@@ -16,6 +16,7 @@ export default function FAQ() {
   const [email, setEmail] = useState("");
   const [topic, setTopic] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -35,6 +36,7 @@ export default function FAQ() {
 
   function handleSendEmail(event) {
     event.preventDefault();
+    setIsLoading(true);
 
     const form = {
       name,
@@ -49,7 +51,18 @@ export default function FAQ() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(form),
-    }).then(() => setSubmitted(true));
+    })
+      .then(() => setSubmitted(true))
+      .catch((err) => console.log("Erro no envio:", err))
+      .finally(() => setIsLoading(false));
+  }
+
+  function handleNewEmail(event) {
+    event.preventDefault();
+
+    setSubmitted(false);
+    setTopic("");
+    setMessage("");
   }
 
   return (
@@ -103,7 +116,9 @@ export default function FAQ() {
               />
             </ContactInfoContainer>
 
-            <Submit type="submit">Enviar</Submit>
+            <Submit type="submit" disabled={isLoading}>
+              {isLoading ? "Enviando E-mail..." : "Enviar"}
+            </Submit>
           </div>
         </ContactContainer>
       ) : (
@@ -114,7 +129,7 @@ export default function FAQ() {
           </div>
 
           <Submit
-            onClick={() => setSubmitted(false)}
+            onClick={handleNewEmail}
             style={{
               marginLeft: 0,
             }}

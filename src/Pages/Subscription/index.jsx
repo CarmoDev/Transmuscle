@@ -91,6 +91,7 @@ export default function Subscription() {
       setCouponVisible(false);
       return navigate("/confirmed");
     } else {
+      addAtleta(formData, file);
       setModalVisible(true);
     }
 

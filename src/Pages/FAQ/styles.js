@@ -120,6 +120,11 @@ export const Submit = styled.button`
     background-color: #a77127;
   }
 
+  &[disabled] {
+    background-color: #ccc;
+    cursor: default;
+  }
+
   @media screen and (max-width: 1100px) {
     align-self: center;
   }
