@@ -17,8 +17,7 @@ export default function ConfirmPayment() {
       </h4>
 
       <h4>
-        Foi enviado por e-mail a cartilha do atleta, a mensagem de boas vindas e
-        seu número de inscrição, caso venha a ter qualquer dúvida basta estar
+        Foi enviado por e-mail a cartilha do atleta e a mensagem de boas vindas, caso venha a ter qualquer dúvida basta estar
         respondendo aquele e-mail com sua dúvida.
       </h4>
 
