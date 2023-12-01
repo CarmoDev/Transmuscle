@@ -12,7 +12,7 @@ import desc from "./utils/desc";
 import PromoModal from "./components/PromoModal";
 
 export default function Home() {
-  const [isPromoVisible, setIsPromoVisible] = useState(true);
+  const [isPromoVisible, setIsPromoVisible] = useState(false);
 
   function handleCloseModal() {
     setIsPromoVisible(false);
