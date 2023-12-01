@@ -33,6 +33,10 @@ export const Container = styled.section`
       background-color: #a77127;
       transform: scale(0.95);
     }
+
+    &:disabled {
+      background-color: #bbb;
+    }
   }
 `;
 
