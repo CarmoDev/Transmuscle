@@ -66,9 +66,7 @@ export default function Menu() {
                 <p>Fale Conosco</p>
               </LinkScroll>
 
-              <Link to="/inscricao">
-                <p>Inscreva-se</p>
-              </Link>
+              <Link to="/">{/* <p>Inscreva-se</p> */}</Link>
             </OptionsList>
           </Sections>
         </HamburguerContainer>
