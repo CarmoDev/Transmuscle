@@ -23,8 +23,11 @@ export default function Checkout({ amount, athleteForm, file }) {
   };
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
+    const id = await addAtleta({ athleteForm, status: "pendente" }, file);
+
     const form = {
       ...formData,
+      description: id,
       athleteForm,
     };
 

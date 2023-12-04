@@ -108,7 +108,9 @@ export default function Menu() {
             </LinkScroll>
           </Options>
 
-          <Link to="/">{/* <p>Inscreva-se</p> */}</Link>
+          <Link to="/inscricao">
+            <p>Inscreva-se</p>
+          </Link>
         </Container>
       )}
     </>

@@ -80,7 +80,7 @@ export default function Subscription() {
 
     if (cupom?.includes("A9")) {
       setAmount(0);
-      addAtleta(formData, file);
+      addAtleta({ ...formData, status: "cupom" }, file);
       fetch("https://sore-bikini-bee.cyclic.app/coupon", {
         method: "POST",
         headers: {
@@ -91,7 +91,6 @@ export default function Subscription() {
       setCouponVisible(false);
       return navigate("/confirmed");
     } else {
-      addAtleta(formData, file);
       setModalVisible(true);
     }
 
@@ -303,7 +302,8 @@ export default function Subscription() {
             </div>
           </FileUploader>
           <small>
-            Esse campeonato é exclusivo para trans e não binários, caso tenha realizado qualquer cirurgia, favor anexar o comprovante
+            Esse campeonato é exclusivo para trans e não binários, caso tenha
+            realizado qualquer cirurgia, favor anexar o comprovante
           </small>
 
           <Checkbox>
@@ -311,7 +311,8 @@ export default function Subscription() {
               {" "}
               Entendo que no dia da pesagem devo levar meus{" "}
               <span>documentos </span>e o <span>laudo médico</span> para
-              comprovação de intervenção círurgica relacionadas a identidade de gênero
+              comprovação de intervenção círurgica relacionadas a identidade de
+              gênero
             </p>
             <input
               type="checkbox"
