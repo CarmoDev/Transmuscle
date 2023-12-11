@@ -81,7 +81,7 @@ export default function Categories() {
         </Swiper>
       )}
 
-      <button disabled={true} onClick={() => navigate("/inscricao")}>
+      <button disabled={false} onClick={() => navigate("/inscricao")}>
         Desejo Competir
       </button>
     </Container>

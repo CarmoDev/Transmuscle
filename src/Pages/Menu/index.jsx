@@ -66,7 +66,9 @@ export default function Menu() {
                 <p>Fale Conosco</p>
               </LinkScroll>
 
-              {/* <Link to="/"><p>Inscreva-se</p></Link> */}
+              <Link to="/inscricao">
+                <p>Inscreva-se</p>
+              </Link>
             </OptionsList>
           </Sections>
         </HamburguerContainer>
@@ -108,9 +110,9 @@ export default function Menu() {
             </LinkScroll>
           </Options>
 
-          {/* <Link to="/inscricao">
+          <Link to="/inscricao">
             <p>Inscreva-se</p>
-          </Link> */}
+          </Link>
         </Container>
       )}
     </>
