@@ -125,11 +125,6 @@ const PurchaseModal = ({ open, onClose, formData }) => {
     PixPayment();
   };
 
-  //cartão retorna se foi bem sucedido   (dai seria legal fazer uma página de sucesso caso retorne SUCESSO no pagamento)
-  //boleto retorna url com pdf
-  //pix retorna url com link de um png
-
-  //falta tratar o número de telefone para passar para o pix
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle>Checkout</DialogTitle>
