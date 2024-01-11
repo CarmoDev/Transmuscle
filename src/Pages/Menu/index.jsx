@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Container,
   HamburguerContainer,
@@ -66,9 +66,9 @@ export default function Menu() {
                 <p>Fale Conosco</p>
               </LinkScroll>
 
-              <Link to="/inscricao">
+              {/* <Link to="/inscricao">
                 <p>Inscreva-se</p>
-              </Link>
+              </Link> */}
             </OptionsList>
           </Sections>
         </HamburguerContainer>
@@ -110,9 +110,9 @@ export default function Menu() {
             </LinkScroll>
           </Options>
 
-          <Link to="/inscricao">
+          {/* <Link to="/inscricao">
             <p>Inscreva-se</p>
-          </Link>
+          </Link> */}
         </Container>
       )}
     </>
