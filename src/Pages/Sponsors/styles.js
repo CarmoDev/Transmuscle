@@ -16,6 +16,41 @@ export const Container = styled.section`
     text-decoration: underline;
   }
 
+  footer {
+    margin-top: 32px;
+
+    a {
+      background-color: #cc9933;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+
+      :hover {
+        transform: scale(1.01);
+      }
+
+      &:hover {
+        background-color: #d1a73e;
+      }
+
+      &:active {
+        background-color: #a77127;
+      }
+
+      &[disabled] {
+        background-color: #ccc;
+        cursor: default;
+      }
+    }
+  }
+
   @media screen and (max-width: 768px) {
     h1 {
       font-size: 24px;

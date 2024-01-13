@@ -6,6 +6,8 @@ import SponsorsData from "./utils/Sponsors";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import Presskit from "./utils/PressKit.pdf";
+
 export default function Sponsors() {
   return (
     <Container>
@@ -39,6 +41,11 @@ export default function Sponsors() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <footer>
+        <a href={Presskit} download={"Transmuscle - Press Kit"}>
+          Seja um Patrocionador
+        </a>
+      </footer>
     </Container>
   );
 }
