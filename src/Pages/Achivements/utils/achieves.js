@@ -28,4 +28,8 @@ export default [
     date: "Novembro",
     name: ["Desenvolvimento do web site e Abertura das novas inscrições"],
   },
+   {
+    date: "Dezembro",
+    name: ["Alcançamos +3K seguidores"],
+  },
 ];
