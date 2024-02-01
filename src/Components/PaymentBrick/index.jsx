@@ -16,7 +16,6 @@ export default function Checkout({ amount, athleteForm, file }) {
 
   const customization = {
     paymentMethods: {
-      bankTransfer: "all",
       ticket: "all",
       creditCard: "all",
     },

@@ -6,7 +6,9 @@ export default function Achivements() {
     <Container>
       <h1>Conquistas</h1>
       <h2>2023</h2>
-      <Achieves />
+      <Achieves year={2023} />
+      <h2>2024</h2>
+      <Achieves year={2024} />
     </Container>
   );
 }
