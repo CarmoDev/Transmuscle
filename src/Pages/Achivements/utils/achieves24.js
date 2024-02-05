@@ -4,7 +4,7 @@ export default [
     name: ["Abertura lote 01"],
   },
   {
-    date: "Janeiro",
+    date: "Fevereiro",
     name: ["Abertura lote 02"],
   },
 ];
