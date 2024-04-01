@@ -24,11 +24,19 @@ export default function Checkout({ amount, athleteForm, file }) {
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
     const id = await addAtleta({ athleteForm, status: "pendente" }, file);
 
-    const form = {
-      ...formData,
-      description: id,
-      athleteForm,
-    };
+    const form =
+      selectedPaymentMethod === "ticket"
+        ? {
+            ...formData,
+            description: id,
+            paymentMethodId: "bolbradesco",
+            athleteForm,
+          }
+        : {
+            ...formData,
+            description: id,
+            athleteForm,
+          };
 
     const route =
       selectedPaymentMethod === "credit_card"
