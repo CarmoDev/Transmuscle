@@ -90,6 +90,9 @@ export default function Subscription() {
       });
       setCouponVisible(false);
       return navigate("/confirmed");
+    } else if (cupom === "TransMuscle24") {
+      setAmount(200);
+      setModalVisible(true);
     } else {
       setModalVisible(true);
     }
