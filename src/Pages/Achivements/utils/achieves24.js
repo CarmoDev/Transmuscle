@@ -7,4 +7,8 @@ export default [
     date: "Fevereiro",
     name: ["Abertura lote 02"],
   },
+  {
+    date: "Abril",
+    name: ["Abertura último lote", "Matéria publicada voz da diversidade"],
+  },
 ];
