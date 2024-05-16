@@ -42,10 +42,6 @@ const ModalCoupon = ({ open, onClose, onConfirm }) => {
               value={cupon}
               onChange={handleFileChange}
             />
-
-            {cupon === "TransMuscle24" && (
-              <small>Valor definido para 200R$</small>
-            )}
           </Content>
         </DialogContent>
       </>

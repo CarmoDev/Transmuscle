@@ -9,6 +9,10 @@ export default [
   },
   {
     date: "Abril",
-    name: ["Abertura último lote", "Matéria publicada voz da diversidade"],
+    name: [
+      "Abertura último lote",
+      "Matéria publicada voz da diversidade",
+      "+7K no Instagram",
+    ],
   },
 ];
