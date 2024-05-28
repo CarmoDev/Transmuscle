@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -10,8 +9,6 @@ import "swiper/css/pagination";
 import CategoriesData from "./utils/Categories";
 
 export default function Categories() {
-  const navigate = useNavigate();
-
   return (
     <Container id="categorias">
       <h1>Categorias</h1>
@@ -80,8 +77,6 @@ export default function Categories() {
           ))}
         </Swiper>
       )}
-
-      <button onClick={() => navigate("/inscricao")}>Desejo Competir</button>
     </Container>
   );
 }

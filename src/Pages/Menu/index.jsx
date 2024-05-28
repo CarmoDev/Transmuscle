@@ -12,7 +12,6 @@ import {
 import { Link as LinkScroll } from "react-scroll";
 
 import Logo from "../../assets/images/GoldenM.png";
-import { Link } from "react-router-dom";
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState("");
@@ -66,10 +65,6 @@ export default function Menu() {
               <LinkScroll to="faq" smooth={true} duration={500} offset={-20}>
                 <p>Fale Conosco</p>
               </LinkScroll>
-
-              <Link to="/inscricao">
-                <p>Inscreva-se</p>
-              </Link>
             </OptionsList>
           </Sections>
         </HamburguerContainer>
@@ -110,10 +105,6 @@ export default function Menu() {
               <p>Fale Conosco</p>
             </LinkScroll>
           </Options>
-
-          <Link to="/inscricao">
-            <p>Inscreva-se</p>
-          </Link>
         </Container>
       )}
     </>
